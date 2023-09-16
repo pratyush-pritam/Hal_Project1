@@ -1,0 +1,172 @@
+Department,Designation,,NameOfDoctors
+Dean,Dean,,Prof. (Dr) Gangadhar Sahoo
+Medical Superintendent,M.S,,Prof. (Dr) Ramesh Ch. Mohapatra
+Anatomy,Professor,,Dr. Prafulla Kumar Chinara (H.O.D)
+Anatomy,Professor,,Dr.Sitansu Kumar Panda
+Anatomy,Associate Professor,,Dr. Biswa Bhusan Mohanty
+Anatomy,Associate Professor,,Dr. Gyanaranjan Nayak
+Anatomy,Associate Professor,,Dr. Pratima Baisakh
+Anatomy,Associate Professor,,Dr. Sourjya Ranjan Das
+Anatomy,Assistant,Professor,Dr. B. Shanta Kumari
+Anatomy,Tutor,,Mrs. Sujita Pradhan
+Anatomy,Tutor,,Mrs. Lopamudra Nayak
+Anatomy,Tutor,,Dr Rahul Ojha
+Physiology,Professor,,Dr. Arati Mohanty (HOD)
+Physiology,Professor,,Dr. Ellora Devi
+Physiology,Professor,,Dr. Dipti Mohapatra
+Physiology,Professor,,Dr. Sandhya Gupta
+Physiology,Associate Professor,,Dr. Manasi Behera
+Physiology,Assistant,Professor,Dr. Tapaswini Mishra
+Physiology,Assistant,Professor,Dr. Arati Meher
+Physiology,Assistant,Professor,Dr. Priyambada Panda
+Physiology,Tutor,,Dr Sushree Sadhabana Das
+Physiology,Tutor,,Dr Ankita Satpathy
+Physiology,Tutor,,Dr Salin Nayak
+Physiology,Post Graduate,,Dr. Sonali Sahoo
+Biochemistry,Professor,,Dr. Subhashree Ray (H.O.D)
+Biochemistry,Professor,,Dr. Viyatprajna Acharya
+Biochemistry,Professor,,Dr. Bratati Singh
+Biochemistry,Associate Professor,,Dr. Sarthak Ranjan Nayak
+Biochemistry,Associate Professor,,Dr. Subrat Kumar Tripathy
+Biochemistry,Assistant,Professor,Dr. Itishree Jena
+Biochemistry,Assistant,Professor,Dr. Sudeshna Behera
+Biochemistry,Assistant,Professor,Dr. Anup Kumar Rana
+Biochemistry,Assistant,Professor,Dr. Sangeeta Sanghamitra Bhanja
+Biochemistry,Assistant,Professor,Dr. Ranjeet Kumar
+Biochemistry,Tutor,,Dr. Shwetlana Panda
+Biochemistry,Tutor,,Dr Priayaka priyadarshini Sahu
+Biochemistry,Tutor,,Dr Biswaprakash Nandy
+Biochemistry,Tutor,,Dr Madhusmita Mangraj
+Biochemistry,Post Graduate,,Dr. Anindya Brahma
+Biochemistry,Post Graduate,,Dr. Swarup Kumar Panda
+Biochemistry,Post Graduate,,Dr. Pragya Panda
+Pharmacology,Professor,,Dr. Sudhanshu Sekhar Mishra (H.O.D)
+Pharmacology,Professor,,Dr. Swati Mishra
+Pharmacology,Associate Professor,,Dr. Karmajeet Rath
+Pharmacology,Associate Professor,,Dr. Rashmirekha Behera
+Pharmacology,Assistant,Professor,Dr. Smita Das
+Pharmacology,Assistant,Professor,Dr. Prasanna Pradhan
+Pharmacology,Assistant,Professor,Dr. Debasish Misra
+Pharmacology,Tutor,,Dr. Manabesh Mohapatra
+Pharmacology,Tutor,,Dr Soumyaranjan pani
+Pharmacology,Tutor,,Dr Jyotsna Mayee Mishra
+Pharmacology,Post Graduate,,Dr. Suman Mandal
+Pathology,Professor,,Dr. Debahuti Mohapatra (HOD)
+Pathology,Professor,,Dr. Rashmi Patnayak
+Pathology,Professor,,Dr. Rajashree Tripathy
+Pathology,Professor,,Dr. Pranita Mohanty
+Pathology,Associate Professor,,Dr. Sarita Pradhan
+Pathology,Assistant,Professor,Dr. Hemalata Dash
+Pathology,Assistant,Professor,Dr. Anima Hota
+Pathology,Assistant,Professor,Dr. Aditi Nayak
+Pathology,Assistant,Professor,Dr. Rajesh Kumar Bhola
+Pathology,Assistant,Professor,Dr. Gunadala Ishitha
+Pathology,Assistant,Professor,Dr. Sujata Naik
+Pathology,Assistant,Professor,Dr. Nibedita Sahoo
+Pathology,Assistant,Professor,Dr. Shilpa Anupurba
+Pathology,Assistant,Professor,Dr. Priyadarshini Dehuri
+Pathology,Assistant,Professor,Dr. Mohita Ray
+Pathology,Assistant,Professor,Dr. Rupanita Biswal
+Pathology,Tutor,,Dr. Sanjita Hazary
+Pathology,Tutor,,Dr. Shawaz Iqbal
+Pathology,Tutor,,Dr Manish Kumar
+Pathology,Tutor,,Dr Swati Sucharita Bhuyan
+Pathology,Tutor,,Dr Binita Das
+Pathology,Tutor,,Dr Srinibas Patra
+Pathology,Post Graduate,,Dr. Jhasaketan Nayak
+Pathology,Post Graduate,,Dr. Subhashree Santisudha
+Pathology,Post Graduate,,Dr. Kaushambi Chakraborty
+Pathology,Post Graduate,,Dr. Kiran Tripathy
+Pathology,Post Graduate,,Dr. Debasmita Das
+Pathology,Post Graduate,,Dr. Subhadip Bhattacharyya
+Pathology,Post Graduate,,Dr. Ajit Surya Mohapatra
+Pathology,Post Graduate,,Dr. Tapan Biswal
+Pathology,Post Graduate,,Dr. Prateek Das
+Pathology,Post Graduate,,Dr. Urvashi Ghosh
+Microbiology,Professor,,Dr. Bichitrananda Swain (HOD)
+Microbiology,Professor,,Dr. Rajesh Kumar Lenka
+Microbiology,Professor,,Dr. Rajashree Panigrahi
+Microbiology,Professor,,Dr. Kundan Ku. Sahu
+Microbiology,Associate Professor,,Dr. Debasish Sahoo
+Microbiology,Assistant,Professor,Dr. Sarita Otta
+Microbiology,Assistant,Professor,Dr. Sunita Kabi
+Microbiology,Assistant,Professor,Dr. Swati Jain
+Microbiology,Assistant,Professor,Dr. Priyadarsini Bhoi
+Microbiology,Assistant,Professor,Dr. Purabi Baral
+Microbiology,Tutor,,Dr. Soumya Ranjan Pani
+Microbiology,Tutor,,Dr. Pradeepta Moharana
+Microbiology,Tutor,,Dr. Shilpa Jena
+Microbiology,Tutor,,Dr. Swapnasha Sahu
+Microbiology,Post Graduate,,Dr. Suryarashmi Sahoo
+Microbiology,Post Graduate,,Dr. Lipika Jena
+Microbiology,Post Graduate,,Dr. Nandita Sharma
+Microbiology,Post Graduate,,Dr. Gurpreet Singh Multani
+F.M. & T,Professor,,Dr. Kunal Mishra (HOD)
+F.M. & T,Professor,,Dr. Pusparaj Samantsinghar
+F.M. & T,Assistant,Professor,Dr. Niranjan Sahu
+F.M. & T,Assistant,Professor,Dr. Mohan Kumar Hansda
+F.M. & T,Tutor,,Dr. Nitesh Ranjan Behera
+F.M. & T,Tutor,,Dr Tridip Das
+F.M. & T,Tutor,,Dr Abhipsa Samal
+Community Medicine,Professor,,Dr. Trilochan Sahu (H.O.D)
+Community Medicine,Professor,,Dr. E. Venkata Rao
+Community Medicine,Professor,,Dr. Sumitra Kumari Pattnaik
+Community Medicine,Professor,,Dr. Lipilekha Patnaik
+Community Medicine,Professor,,Dr. Ishwar Chandra Behera
+Community Medicine,Associate Professor,,Dr. Damayanti Pattanaik
+Community Medicine,"Statistician - cum- Associate
+Professor",,Prasanta Kumar Brahma
+Community Medicine,Assistant,Professor,Dr. Jyoti Ranjan Sahoo
+Community Medicine,Assistant,Professor,Dr. Sudhir Kumar Parida
+Community Medicine,Assistant,Professor,Dr. Sandeep Kumar Panigrahi
+Community Medicine,"Epidemician-cum-Assistant
+professor",,Dr. Mahima Panigrahi
+Community Medicine,Assistant professor-UHC,,Dr. Sudhanshu Sekhar Patra
+Community Medicine,Assistant professor-RHC,,Dr. Srikanta Kanungo
+Community Medicine,Assistant professor-RHC,,Dr. Smaraki Mohanty
+Community Medicine,Assistant professor-RHC,,Dr. Sambedana Mohanty
+Community Medicine,Assistant professor-RHC,,Dr. Subraham Pany
+Community Medicine,Tutor,,Dr. Anupriya Mundari
+Community Medicine,Tutor,,Dr. Sunil Kumar Das
+Community Medicine,Tutor,,Dr. Rohit Kumar Padhy
+Community Medicine,Tutor,,Dr Barsha Rani Sahu
+Community Medicine,"L.M.O, RHC",,Dr. Renu Devi Lal
+Community Medicine,"L.M.O, UHC",,Dr. Ritiranjita Parida
+Community Medicine,Post Graduate,,Dr. Arjit Kundu
+Community Medicine,Post Graduate,,Dr. Vivek Varat Pattanaik
+Community Medicine,Post Graduate,,Dr. Ria Ganguly
+Community Medicine,Post Graduate,,Dr. Kamal Kishore Dewangan
+General Medicine,Professor,,Dr. Laxmidhar Roul (H.O.D)
+General Medicine,Professor,,Dr. Naba Kishore Sundaray
+General Medicine,Professor,,Dr. Samir Sahoo
+General Medicine,Professor,,Dr. Rajesh Padhi
+General Medicine,Professor,,Dr. Sobhitendu Kabi
+General Medicine,Professor,,Dr. Chandan Das
+General Medicine,Associate Professor,,Dr. Srikant Kumar Dhar
+General Medicine,Assistant,Professor,Dr. Subhash Ch. Das
+General Medicine,Assistant,Professor,Dr. Promod Kumar Tudu
+General Medicine,Assistant,Professor,Dr. Sarada Prasad Sahu
+General Medicine,Assistant,Professor,Dr. Shyam Sundar Kar
+General Medicine,Assistant,Professor,Dr. Raja Kishore Barad
+General Medicine,Assistant,Professor,Dr. Surendra Prasad Panda
+General Medicine,Assistant,Professor,Dr. Surendra Nath Swain
+General Medicine,Assistant,Professor,Dr. Santosh Kumar Singh
+General Medicine,Assistant,Professor,Dr. Santosh Singh
+General Medicine,Assistant,Professor,Dr. Arpira Dash
+General Medicine,Assistant,Professor,Dr. Udaybhanu Rout
+General Medicine,Assistant,Professor,Dr. Ashish Malla
+General Medicine,Assistant,Professor,Dr. Debasmita Tripathy
+General Medicine,Assistant,Professor,Dr. Siba Prasad Dalai
+General Medicine,Senior Resident,,Dr. Aujiwalya Kumar Jena
+General Medicine,Senior Resident,,Dr. Sambit Kumar Bhuyan
+General Medicine,Senior Resident,,Dr. Subhasmita Sahoo
+General Medicine,Senior Resident,,Dr. Mrunmaya Ricky Jena
+General Medicine,Senior Resident,,Dr. Sushree Sasmita Das
+General Medicine,Junior Resident,,Dr. Judhajit Maiti
+General Medicine,Junior Resident,,Dr. Abhishek Prasad Dash
+General Medicine,Junior Resident,,Dr. Gourab Arun
+General Medicine,Junior Resident,,Dr. Diptiman Sahoo
+General Medicine,Junior Resident,,Dr. Satish Kumar Samal
+General Medicine,Junior Resident,,Dr. Rajesh Ranjan Behera
+General Medicine,Junior Resident,,Dr. Beeravelli Rajesh
+General Medicine,Junior Resident,,Dr. Vujwal Roy Kakollu
