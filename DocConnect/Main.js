@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./redux/action";
 import Loader from "./components/Loader";
 import firestore from "@react-native-firebase/firestore"; 
+import { LogBox } from "react-native";
+LogBox.ignoreAllLogs();
 
 const Main = () => {
   const dispatch = useDispatch();
