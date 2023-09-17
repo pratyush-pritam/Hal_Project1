@@ -6,13 +6,16 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { ScrollView } from "react-native";
 import { Calendar } from "react-native-calendars";
 import Tab from "../components/Tab";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import auth from "@react-native-firebase/auth";
+import Toast from "react-native-toast-message";
 
 const initialSelectedDates = ["2023-09-16", "2023-09-19"];
 const arr = [1, 2, 3];
 const ProfileScreen = ({ navigation }) => {
   const [selectedDates, setSelectedDates] = useState(initialSelectedDates);
   const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const handleDatePress = (day) => {
     const dateString = day.dateString;
     const isSelected = selectedDates.includes(dateString);
@@ -28,6 +31,21 @@ const ProfileScreen = ({ navigation }) => {
       ]);
     }
   };
+  const logoutHandler = () => {
+    auth()
+      .signOut()
+      .then(() => {
+        Toast.show({ type: "success", text1: "ComeBack Again!" })
+        navigation.reset({
+          index: 0,
+          routes: [{ name: "Login" }]
+        }
+        );
+        dispatch({
+          type: "logOutSuccess",
+        });
+      });
+  }
 
   const renderAppointments = (date) => (
     <View>
@@ -41,6 +59,8 @@ const ProfileScreen = ({ navigation }) => {
           justifyContent: "space-between",
           alignItems: "center",
           marginBottom: 10,
+          borderColor: colors.primaryColor,
+          borderWidth: 1
         }}
       >
         <View
@@ -63,6 +83,8 @@ const ProfileScreen = ({ navigation }) => {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
+          borderColor: colors.primaryColor,
+          borderWidth: 1
         }}
       >
         <View
@@ -130,7 +152,7 @@ const ProfileScreen = ({ navigation }) => {
               <MaterialIcons
                 name="verified"
                 size={35}
-                color={colors.primaryColor}
+                color={"green"}
               />
             </View>
             <TouchableOpacity onPress={() => navigation.navigate("Update")}>
@@ -170,6 +192,33 @@ const ProfileScreen = ({ navigation }) => {
               elevation: 8,
               marginBottom: 10,
               borderRadius: colors.br,
+              borderColor: colors.primaryColor,
+              borderWidth: 1,
+            }}
+            theme={{
+              backgroundColor: colors.mainColor,
+              calendarBackground: colors.mainColor,
+              textSectionTitleColor: colors.backgroundColor,
+              selectedDayBackgroundColor: '#00adf5',
+              selectedDayTextColor: '#ffffff',
+              todayTextColor: colors.backgroundColor,
+              dayTextColor: colors.backgroundColor,
+              textDisabledColor: '#d9e1e8',
+              dotColor: '#00adf5',
+              selectedDotColor: '#ffffff',
+              arrowColor: colors.backgroundColor,
+              disabledArrowColor: '#d9e1e8',
+              monthTextColor: colors.backgroundColor,
+              indicatorColor: colors.backgroundColor,
+              textDayFontFamily: 'monospace',
+              textMonthFontFamily: 'monospace',
+              textDayHeaderFontFamily: 'monospace',
+              textDayFontWeight: '300',
+              textMonthFontWeight: 'bold',
+              textDayHeaderFontWeight: '300',
+              textDayFontSize: 16,
+              textMonthFontSize: 16,
+              textDayHeaderFontSize: 16
             }}
             onDayPress={handleDatePress}
             markedDates={selectedDates.reduce((acc, date) => {
@@ -220,7 +269,7 @@ const ProfileScreen = ({ navigation }) => {
             <TouchableOpacity style={styles.settingBox}>
               <Text style={styles.settingBoxText}>About</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.settingBox}>
+            <TouchableOpacity style={styles.settingBox} onPress={logoutHandler}>
               <Text style={styles.settingBoxText}>Logout</Text>
             </TouchableOpacity>
           </View>
@@ -244,25 +293,31 @@ const styles = StyleSheet.create({
     paddingBottom: 13,
   },
   box: {
-    backgroundColor: colors.backgroundColor,
+    backgroundColor: colors.mainColor,
     borderRadius: 10,
     padding: 25,
     elevation: 10,
+    borderColor: colors.primaryColor,
+    borderWidth: 1,
   },
   text1: {
     fontSize: 17,
     fontWeight: "500",
+    color: colors.backgroundColor,
   },
   settingBox: {
-    backgroundColor: colors.backgroundColor,
+    backgroundColor: colors.mainColor,
     borderRadius: 10,
     padding: 25,
     elevation: 4,
     marginVertical: 10,
+    borderWidth: 1,
+    borderColor: colors.primaryColor,
   },
   settingBoxText: {
     fontSize: 17,
     fontWeight: "500",
     textAlign: "center",
+    color: colors.backgroundColor
   },
 });

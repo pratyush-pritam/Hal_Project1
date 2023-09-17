@@ -4,15 +4,17 @@ import { SafeAreaView } from "react-native";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./redux/action";
+import Loader from "./components/Loader";
 
 const Main = () => {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.user);
+  const { user, loading } = useSelector((state) => state.user);
 
   useEffect(() => {
     dispatch(loadUser());
   }, [dispatch]);
-
+  if (!user && loading) return <Loader height={100} width={100} color="black" />
+ 
   return (
     <>
       <SafeAreaView style={{ flex: 1 }}>

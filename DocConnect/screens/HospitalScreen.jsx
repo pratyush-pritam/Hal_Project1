@@ -13,7 +13,7 @@ import SquareMenuButton from "../components/SquareMenuButton";
 import Tab from "../components/Tab";
 import { healthCategories } from "../constants/data";
 import { Entypo } from "@expo/vector-icons";
-import ChatComponent from "../components/ChatComponent";
+// import ChatComponent from "../components/ChatComponent";
 
 const HospitalScreen = ({ navigation }) => {
   const [visible, setVisible] = useState(false);
@@ -97,7 +97,7 @@ const HospitalScreen = ({ navigation }) => {
               <Tab text={"1"} />
               <Tab text={"2"} />
             </View>
-            <ChatComponent />
+            {/* <ChatComponent /> */}
           </View>
         </View>
       </View>

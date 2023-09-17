@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { View } from "react-native";
 import { colors } from "./constants/styles";
 import auth from "@react-native-firebase/auth";
+import Loader from "./components/Loader";
 
 //Screens for the navigation
 import LoginScreen from "./screens/LoginScreen";
@@ -43,8 +44,10 @@ function Navigation() {
   if (showOnboarding === null) {
     return (
       <View
-        style={{ flex: 1, display: "flex", backgroundColor: colors.color1 }}
-      />
+        style={{ flex: 1, display: "flex", backgroundColor: colors.backgroundColor,justifyContent:"center",alignItems:"center" }}
+      >
+        {/* <Loader height={100} width={100} color="black"/> */}
+      </View>
     );
   }
 

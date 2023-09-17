@@ -51,8 +51,8 @@ export default function OnboardingScreen() {
                 />
               </View>
             ),
-            title: "Find The Best Service",
-            subtitle: "We provide the best medical service",
+            title: "Welcome to DocConnect",
+            subtitle: "We're thrilled to have you on board! DocConnect is here to simplify your life. Get ready to experience convenience, efficiency, and more.",
             subTitleStyles: {
               fontWeight: 500,
               fontSize: 15.9,
@@ -69,8 +69,8 @@ export default function OnboardingScreen() {
                 />
               </View>
             ),
-            title: "Daily Checkups",
-            subtitle: "Add karenge badd mai",
+            title: "Discover Key Features",
+            subtitle: "Explore a world of possibilities with DocConnect. From doctor schedules to indoor maps, we've got everything you need to make your life easier. Let's dive in!",
             subTitleStyles: {
               fontWeight: 500,
               fontSize: 15.9,
@@ -88,8 +88,8 @@ export default function OnboardingScreen() {
                 />
               </View>
             ),
-            title: "Kucch lorem12",
-            subtitle: "Likh lenege",
+            title: "Let's Get Started",
+            subtitle: `Setting up DocConnect is a breeze. Just a few steps, and you'll be on your way to enjoying a smarter, more connected life. Tap "Get Started" to begin your journey.`,
             subTitleStyles: {
               fontWeight: 500,
               fontSize: 15.9,

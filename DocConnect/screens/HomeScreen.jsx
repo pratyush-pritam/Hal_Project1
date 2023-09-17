@@ -5,16 +5,16 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
+  Pressable
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { colors, defaultStyle, inputOptions } from "../constants/styles";
-import { Avatar, Searchbar, TextInput } from "react-native-paper";
-import { categories, doctors } from "../constants/data";
+import { colors, defaultStyle, } from "../constants/styles";
+import { Avatar, Searchbar, } from "react-native-paper";
+import { categories, } from "../constants/data";
 import Tab from "../components/Tab";
 import SquareMenuButtton from "../components/SquareMenuButton";
-import auth from "@react-native-firebase/auth";
-import firestore from "@react-native-firebase/firestore";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { loadUser } from "../redux/action";
 
 const arr = ["info", "info", "info", "info"];
 
@@ -24,7 +24,7 @@ const renderCategorySection = (title, items, navigateTo, navigation) => {
       <Text style={styles.sectionTitle}>{title}</Text>
       <View style={styles.categoryContainer}>
         {items.map((item, index) => (
-          <Tab key={index} text={item} />
+          <Tab key={index} text={item} onPress={() => navigation.navigate(item)} />
         ))}
         <TouchableOpacity
           onPress={() => navigation.navigate(navigateTo)}
@@ -37,13 +37,17 @@ const renderCategorySection = (title, items, navigateTo, navigation) => {
   );
 };
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation, route }) => {
   const [visible, setVisible] = useState(false);
   const closeMenu = () => {
     setVisible(false);
   };
+  const dispatch = useDispatch();
 
-  const { user, loading } = useSelector((state) => state.user);
+  useEffect(() => {
+    dispatch(loadUser());
+  }, [route]);
+  const { user } = useSelector((state) => state.user);
   console.log(user);
 
   return (
@@ -71,7 +75,7 @@ const HomeScreen = ({ navigation }) => {
                   source={{
                     uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX4wVGjMQ37PaO4PdUVEAliSLi8-c2gJ1zvQ&usqp=CAU",
                   }}
-                  size={70}
+                  size={80}
                 />
               </TouchableOpacity>
               <SquareMenuButtton onPress={() => setVisible(!visible)} />
@@ -100,10 +104,13 @@ const HomeScreen = ({ navigation }) => {
                 backgroundColor: "#ffffff",
                 shadowColor: colors.textColor,
               }}
+              onPressIn={() => navigation.navigate("Search")}
             />
-            <View
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Doctors")}
+              activeOpacity={0.8}
               style={{
-                backgroundColor: "#ffff",
+                backgroundColor: colors.mainColor,
                 elevation: 5,
                 padding: 25,
                 alignItems: "center",
@@ -118,6 +125,7 @@ const HomeScreen = ({ navigation }) => {
                     fontSize: 20,
                     fontWeight: "500",
                     textAlign: "center",
+                    color: colors.backgroundColor
                   }}
                 >
                   Schedule a
@@ -127,6 +135,7 @@ const HomeScreen = ({ navigation }) => {
                     fontSize: 20,
                     fontWeight: "500",
                     textAlign: "right",
+                    color: colors.backgroundColor
                   }}
                 >
                   visit online
@@ -135,10 +144,10 @@ const HomeScreen = ({ navigation }) => {
               <Avatar.Icon
                 icon={"doctor"}
                 style={{
-                  backgroundColor: colors.primaryColor,
+                  backgroundColor: "transparent",
                 }}
               />
-            </View>
+            </TouchableOpacity>
             {/* Categories */}
             {renderCategorySection(
               "What do you need ?",
@@ -149,7 +158,7 @@ const HomeScreen = ({ navigation }) => {
             {/* Govt. Scheme */}
             {renderCategorySection("Govt. Schemes for you", arr)}
             {/* Recommended Articles */}
-            {renderCategorySection("Recommended Articles", arr)}
+            {renderCategorySection("Recommended Articles", arr, "Articles", navigation)}
             {/* Popular Doctors */}
             {renderCategorySection(
               "Popular Doctors",
@@ -161,7 +170,7 @@ const HomeScreen = ({ navigation }) => {
             {renderCategorySection(
               "Popular Hospitals",
               arr,
-              "Hospitals",
+              "AllHospital",
               navigation
             )}
             <View style={{ marginBottom: 10 }} />
@@ -221,10 +230,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   sectionTitle: {
-    fontWeight: "400",
+    fontWeight: "bold",
     fontSize: 23,
     marginBottom: 10,
-    textDecorationLine: "underline",
   },
   seeAll: {
     fontSize: 16,
