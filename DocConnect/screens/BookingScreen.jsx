@@ -36,7 +36,7 @@ const BookingScreen = ({ navigation, route }) => {
   };
   return (
     <TouchableWithoutFeedback onPress={closeMenu}>
-      <View style={{ ...defaultStyle, padding: 0 }}>
+      <View style={{ ...defaultStyle, padding: 0, backgroundColor: colors.headingColor }}>
         <View
           style={{
             flex: 1,
@@ -48,13 +48,13 @@ const BookingScreen = ({ navigation, route }) => {
               <Avatar.Icon
                 icon={"arrow-left"}
                 style={{
-                  backgroundColor: colors.backgroundColor,
+                  backgroundColor: 'transparent',
                   resizeMode: "contain",
                 }}
-                color={colors.textColor}
+                color={colors.backgroundColor}
               />
             </TouchableOpacity>
-            <SquareMenuButton onPress={() => setVisible(!visible)} />
+            <SquareMenuButton onPress={() => setVisible(!visible)} color={"#ffff"} />
             {visible && (
               <View style={styles.menu}>
                 <Text style={styles.boxTitle}>Help</Text>
@@ -62,24 +62,27 @@ const BookingScreen = ({ navigation, route }) => {
               </View>
             )}
           </View>
-          <View style={{ height: "15%" }} />
           <View style={{ marginBottom: 10 }}>
             <Text
               style={{
                 paddingHorizontal: 25,
-                fontSize: 30,
+                fontSize: 35,
                 fontWeight: "bold",
+                color: colors.backgroundColor,
+                textAlign: "center",
               }}
             >
               Booking
             </Text>
+            <View style={{ height: "7%" }} />
           </View>
           <View
             style={{
               borderWidth: 1,
-              borderTopLeftRadius: 100,
+              borderTopLeftRadius: 70,
               borderColor: colors.textColor,
               flex: 2,
+              backgroundColor: colors.backgroundColor
             }}
           >
             <View style={{ height: "13%" }} />
@@ -146,7 +149,7 @@ const BookingScreen = ({ navigation, route }) => {
                         flexDirection: "row",
                         justifyContent: "space-between",
                         alignItems: "center",
-                        backgroundColor: colors.secondaryColor,
+                        backgroundColor: colors.mainColor,
                         padding: 10,
                         marginVertical: 10,
                         borderRadius: 5,
@@ -160,7 +163,7 @@ const BookingScreen = ({ navigation, route }) => {
                     >
                       <Text
                         style={{
-                          color: "#fff",
+                          color: timeSlots != item ? "#000000" : "#fff",
                           fontSize: 15,
                         }}
                       >
@@ -171,8 +174,8 @@ const BookingScreen = ({ navigation, route }) => {
                 </View>
                 <TouchableOpacity
                   style={{
-                    backgroundColor: colors.secondaryColor,
-                    padding: 10,
+                    backgroundColor: colors.mainColor,
+                    padding: 15,
                     borderRadius: 5,
                     marginTop: 10,
                   }}
@@ -192,6 +195,7 @@ const BookingScreen = ({ navigation, route }) => {
                     Book
                   </Text>
                 </TouchableOpacity>
+                <View style={{ marginBottom: 10 }} />
               </ScrollView>
             </View>
           </View>

@@ -7,9 +7,9 @@ import {
     TouchableWithoutFeedback
 } from "react-native";
 import React, { useState } from "react";
-import { defaultStyle, colors } from "../constants/styles";
+import { defaultStyle, colors } from "../../constants/styles";
 import { Avatar } from "react-native-paper";
-import SquareMenuButton from "../components/SquareMenuButton";
+import SquareMenuButton from "../../components/SquareMenuButton";
 
 const hospitals = ["SUM", "AIIMS", "UTKAL"];
 
@@ -25,7 +25,7 @@ const AllHospitalScreen = ({ navigation }) => {
     };
     return (
         <TouchableWithoutFeedback onPress={closeMenu}>
-            <View style={{ ...defaultStyle, padding: 0 }}>
+            <View style={{ ...defaultStyle, padding: 0, backgroundColor: colors.headingColor }}>
                 <View
                     style={{
                         flex: 1,
@@ -37,13 +37,13 @@ const AllHospitalScreen = ({ navigation }) => {
                             <Avatar.Icon
                                 icon={"arrow-left"}
                                 style={{
-                                    backgroundColor: colors.backgroundColor,
+                                    backgroundColor: "transparent",
                                     resizeMode: "contain",
                                 }}
-                                color={colors.textColor}
+                                color={colors.backgroundColor}
                             />
                         </TouchableOpacity>
-                        <SquareMenuButton onPress={() => setVisible(!visible)} />
+                        <SquareMenuButton onPress={() => setVisible(!visible)} color={"#fff"} />
                         {visible && (
                             <View style={styles.menu}>
                                 <Text style={styles.boxTitle}>Help</Text>
@@ -51,17 +51,18 @@ const AllHospitalScreen = ({ navigation }) => {
                             </View>
                         )}
                     </View>
-                    <View style={{ height: "15%" }} />
                     <View style={{ marginBottom: 10 }}>
                         <Text
                             style={{
-                                paddingHorizontal: 25,
                                 fontSize: 30,
                                 fontWeight: "bold",
+                                color: colors.backgroundColor,
+                                textAlign: 'center'
                             }}
                         >
                             Hospitals Available
                         </Text>
+                        <View style={{ height: "10%" }} />
                     </View>
                     <View
                         style={{
@@ -69,6 +70,7 @@ const AllHospitalScreen = ({ navigation }) => {
                             borderTopLeftRadius: 100,
                             borderColor: colors.textColor,
                             flex: 2,
+                            backgroundColor: colors.backgroundColor
                         }}
                     >
                         <View style={{ height: "10%" }} />
@@ -82,7 +84,7 @@ const AllHospitalScreen = ({ navigation }) => {
                                         key={index}
                                         style={{
                                             width: "100%",
-                                            backgroundColor: colors.backgroundColor,
+                                            backgroundColor: colors.mainColor,
                                             borderRadius: 12,
                                             marginBottom: 15,
                                             flexDirection: "row",
@@ -94,7 +96,7 @@ const AllHospitalScreen = ({ navigation }) => {
                                         }}
                                         onPress={() => navigateTo(item)}
                                     >
-                                        <Text style={{ textAlign: "center", fontSize: 20 }}>
+                                        <Text style={{ textAlign: "center", fontSize: 20, color: colors.backgroundColor }}>
                                             {item}
                                         </Text>
                                     </TouchableOpacity>

@@ -14,6 +14,7 @@ import { newsArticles } from "../constants/data";
 import Loader from "../components/Loader";
 import * as Animatable from "react-native-animatable";
 import { Avatar } from "react-native-paper";
+import { StatusBar } from "expo-status-bar";
 
 const ArticleScreen = ({ navigation }) => {
   const [articles, setArticles] = useState([]);
@@ -48,6 +49,7 @@ const ArticleScreen = ({ navigation }) => {
       style={styles.animatedItem}
       delay={index * 300}
     >
+      <StatusBar style="dark" />
       <TouchableOpacity
         onPress={() => {
           Linking.openURL(item.url);
@@ -74,12 +76,19 @@ const ArticleScreen = ({ navigation }) => {
       style={styles.container}
       ListHeaderComponent={
         <View style={styles.heading}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
+          <TouchableOpacity onPress={() => navigation.goBack()}
+            style={{
+              position: 'absolute',
+              left: 0,
+              zIndex: 99
+            }}
+
+          >
             <Avatar.Icon
               icon={"arrow-left"}
               style={{
                 backgroundColor: colors.backgroundColor,
-                resizeMode: "contain",
+
               }}
               color={colors.textColor}
               size={60}
@@ -87,11 +96,12 @@ const ArticleScreen = ({ navigation }) => {
           </TouchableOpacity>
           <Text
             style={{
-              fontSize: 25,
+              fontSize: 28,
               fontWeight: "bold",
               color: colors.textColor,
               flex: 1,
               textAlign: "center",
+
             }}
           >
             Articles
@@ -107,6 +117,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    position: 'relative',
+    marginBottom: 16,
   },
   container: {
     ...defaultStyle,

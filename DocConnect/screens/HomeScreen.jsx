@@ -1,20 +1,26 @@
 import {
+  Dimensions,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
-  Pressable
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { colors, defaultStyle, } from "../constants/styles";
 import { Avatar, Searchbar, } from "react-native-paper";
-import { categories, } from "../constants/data";
+import { categories, doctors, } from "../constants/data";
 import Tab from "../components/Tab";
 import SquareMenuButtton from "../components/SquareMenuButton";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "../redux/action";
+import { FontAwesome5 } from '@expo/vector-icons';
+import ChatBot from "../components/ChatBot";
+import LinearGradient from 'react-native-linear-gradient';
+
+
+const width = Dimensions.get('window').width;
 
 const arr = ["info", "info", "info", "info"];
 
@@ -24,7 +30,28 @@ const renderCategorySection = (title, items, navigateTo, navigation) => {
       <Text style={styles.sectionTitle}>{title}</Text>
       <View style={styles.categoryContainer}>
         {items.map((item, index) => (
-          <Tab key={index} text={item} onPress={() => navigation.navigate(item)} />
+          <>
+            {
+              title === "Popular Hospitals" ? <TouchableOpacity
+                key={index}
+                onPress={() => navigation.navigate("AllHospital", { hospital: item })}
+                style={{
+                  width: 100,
+                  height: 55,
+                  borderWidth: 1,
+                  borderRadius: colors.br,
+                  backgroundColor: colors.mainColor,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <FontAwesome5 name="hospital-symbol" size={30} color="white" />
+              </TouchableOpacity> :
+                <Tab key={index} text={title === "Popular Doctors" ? item.name : item} onPress={() =>
+                  title === "Popular Doctors" ? navigation.navigate("DoctorDetails", { doctor: item }) : navigation.navigate(item)
+                } />
+            }
+          </>
         ))}
         <TouchableOpacity
           onPress={() => navigation.navigate(navigateTo)}
@@ -39,6 +66,7 @@ const renderCategorySection = (title, items, navigateTo, navigation) => {
 
 const HomeScreen = ({ navigation, route }) => {
   const [visible, setVisible] = useState(false);
+  const [chatVisible, setChatVisible] = useState(false);
   const closeMenu = () => {
     setVisible(false);
   };
@@ -48,11 +76,10 @@ const HomeScreen = ({ navigation, route }) => {
     dispatch(loadUser());
   }, [route]);
   const { user } = useSelector((state) => state.user);
-  console.log(user);
 
   return (
     <TouchableWithoutFeedback onPress={closeMenu}>
-      <View style={{ ...defaultStyle, padding: 0 }}>
+      <LinearGradient colors={["#9ac8d6", "#f5f8f8"]} style={{ ...defaultStyle, padding: 0, position: 'relative' }}>
         <ScrollView
           style={{
             flex: 1,
@@ -162,7 +189,7 @@ const HomeScreen = ({ navigation, route }) => {
             {/* Popular Doctors */}
             {renderCategorySection(
               "Popular Doctors",
-              arr,
+              doctors,
               "Doctors",
               navigation
             )}
@@ -176,7 +203,27 @@ const HomeScreen = ({ navigation, route }) => {
             <View style={{ marginBottom: 10 }} />
           </View>
         </ScrollView>
-      </View>
+        {
+          chatVisible ?
+            <View style={{
+              flex: 1,
+              backgroundColor: colors.backgroundColor,
+              position: "absolute",
+              zIndex: 1,
+              top: '15%',
+              left: 5,
+              width: width - 10,
+              height: '80%',
+              // borderRadius: 20,
+            }}>
+              <ChatBot setChatVisible={setChatVisible} visible={chatVisible} />
+            </View>
+            :
+            <TouchableOpacity onPress={() => setChatVisible(!chatVisible)} style={{ position: 'absolute', bottom: 0, right: 0, zIndex: 1, backgroundColor: colors.mainColor, padding: 10, borderRadius: 50, margin: 10 }}>
+              <FontAwesome5 name="robot" size={30} color="white" />
+            </TouchableOpacity>
+        }
+      </LinearGradient>
     </TouchableWithoutFeedback>
   );
 };
