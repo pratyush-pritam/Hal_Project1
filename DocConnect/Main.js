@@ -5,12 +5,19 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./redux/action";
 import Loader from "./components/Loader";
+import firestore from "@react-native-firebase/firestore"; 
 
 const Main = () => {
   const dispatch = useDispatch();
   const { user, loading } = useSelector((state) => state.user);
+  const getData = async () => {
+    const dr = await firestore().collection("SUM_Hospital").get();
+    const drData = dr.docs.map((doc) => doc.data().nameOfDoctor);
 
+    console.log(drData);
+  };
   useEffect(() => {
+    getData();
     dispatch(loadUser());
   }, [dispatch]);
   if (!user && loading) return <Loader height={100} width={100} color="black" />
