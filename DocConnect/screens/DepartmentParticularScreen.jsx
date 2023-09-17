@@ -18,7 +18,7 @@ const DepartmentParticularScreen = ({ route, navigation }) => {
   const closeMenu = () => {
     setVisible(false);
   };
-
+// Navigating to the doctor details screen
   const navigateTo = (item) => {
     navigation.navigate("DoctorDetails", {
       doctor: item,

@@ -6,6 +6,7 @@ import { Avatar } from "react-native-paper";
 
 const arr = ["You", 1, 2, 3];
 const PatientScreen = ({ navigation, route }) => {
+  //Navigating to the update saved screen
   return (
     <View style={{ ...defaultStyle, padding: 0 }}>
       <View>
@@ -17,6 +18,7 @@ const PatientScreen = ({ navigation, route }) => {
           }}
         >
           <TouchableOpacity onPress={() => navigation.goBack()}>
+            
             <Avatar.Icon
               icon={"arrow-left"}
               style={{

@@ -4,6 +4,7 @@ import { Searchbar } from "react-native-paper";
 import { colors, defaultStyle } from "../constants/styles";
 
 const SearchScreen = () => {
+  //Search query
   const [query, setQuery] = useState("");
   return (
     <View style={{ ...defaultStyle, padding: 7 }}>

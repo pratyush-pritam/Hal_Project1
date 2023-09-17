@@ -9,8 +9,9 @@ import {
 import { indianHolidays } from "../constants/data";
 import { colors, defaultStyle } from "../constants/styles";
 import { Avatar } from "react-native-paper";
-
+//Holiday screen
 const HolidayScreen = ({ navigation }) => {
+  //Rendering the holiday list
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
       <Text style={styles.holidayName}>{item.name}</Text>

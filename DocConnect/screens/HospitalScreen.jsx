@@ -13,7 +13,7 @@ import SquareMenuButton from "../components/SquareMenuButton";
 import Tab from "../components/Tab";
 import { healthCategories } from "../constants/data";
 import { Entypo } from "@expo/vector-icons";
-// import ChatComponent from "../components/ChatComponent";
+import ChartComponent from "../components/ChartComponent";
 
 const HospitalScreen = ({ navigation }) => {
   const [visible, setVisible] = useState(false);

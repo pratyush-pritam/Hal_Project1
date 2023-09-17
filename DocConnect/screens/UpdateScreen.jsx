@@ -22,6 +22,7 @@ import { StatusBar } from "expo-status-bar";
 const arr = ["info", "info", "info", "info"];
 
 const UpdateScreen = ({ navigation }) => {
+  //Update user details
   const { user } = useSelector((state) => state.user);
   const { username, email, mobile, adhar, age, occupation } = user;
   const [userCredentials, setUserCredentials] = useState({

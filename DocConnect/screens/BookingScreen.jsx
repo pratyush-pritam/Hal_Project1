@@ -24,12 +24,15 @@ const BookingScreen = ({ navigation, route }) => {
   const closeMenu = () => {
     setVisible(false);
   };
+  //Showing the date picker
   const showDatePicker = () => {
     setDatePickerVisibility(true);
   };
+
   const hideDatePicker = () => {
     setDatePickerVisibility(false);
   };
+  //Confirming the date
   const handleConfirm = (date) => {
     setSelectedDate(date);
     hideDatePicker();

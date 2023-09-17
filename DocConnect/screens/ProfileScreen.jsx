@@ -17,6 +17,7 @@ const ProfileScreen = ({ navigation }) => {
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const handleDatePress = (day) => {
+    // Showing the selected date
     const dateString = day.dateString;
     const isSelected = selectedDates.includes(dateString);
 

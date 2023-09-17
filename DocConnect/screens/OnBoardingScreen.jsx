@@ -14,8 +14,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { StatusBar } from "expo-status-bar";
 
 const { width } = Dimensions.get("window");
-
+// Onboarding Screen
 export default function OnboardingScreen() {
+  // Getting the color scheme
   const colorScheme = Appearance.getColorScheme();
   const navigation = useNavigation();
   const handleDone = async () => {

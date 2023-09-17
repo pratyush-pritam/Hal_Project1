@@ -20,12 +20,14 @@ import {
     const closeMenu = () => {
       setVisible(false);
     };
+    // Navigating to the doctor details screen
     const navigateTo = (item) => {
       navigation.navigate("DoctorDetails", {
         doctor: item,
       });
     };
   
+    //Fetching the data from the firestore
     const getData = async () => {
       const dr = await firestore().collection("Doctors_SUM").get();
       const drData = dr.docs.map((doc) => doc.data());
