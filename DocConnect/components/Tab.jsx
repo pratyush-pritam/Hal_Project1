@@ -25,16 +25,15 @@ const styles = StyleSheet.create({
   text: {
     width: 100,
     height: 55,
-    borderWidth: 1,
     borderRadius: colors.br,
-    borderColor: colors.primaryColor,
-    backgroundColor: colors.backgroundColor,
+    backgroundColor: colors.mainColor,
     alignItems: "center",
     justifyContent: "center",
+    borderColor: "trasnparent",
   },
 
   text1: {
-    color: colors.textColor,
+    color: colors.backgroundColor,
     fontSize: 14,
     fontWeight: "500",
   },
