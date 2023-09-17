@@ -105,6 +105,7 @@ const RegisterScreen = ({ navigation, route }) => {
         });
 
       setLoading(false);
+      console.log(error, "error")
     }
   };
   useEffect(() => {
@@ -141,7 +142,7 @@ const RegisterScreen = ({ navigation, route }) => {
 
             <TextInput
               {...inputOptions}
-              placeholder="Name"
+              label="Name"
               value={name}
               onChangeText={(val) =>
                 setUserCredentials({ ...userCredentials, name: val })
@@ -151,7 +152,7 @@ const RegisterScreen = ({ navigation, route }) => {
 
             <TextInput
               {...inputOptions}
-              placeholder="Email"
+              label="Email"
               keyboardType="email-address"
               value={email}
               onChangeText={(val) =>
@@ -161,7 +162,7 @@ const RegisterScreen = ({ navigation, route }) => {
             />
             <TextInput
               {...inputOptions}
-              placeholder="Age"
+              label="Age"
               value={age}
               onChangeText={(val) =>
                 setUserCredentials({ ...userCredentials, age: val })
@@ -172,7 +173,7 @@ const RegisterScreen = ({ navigation, route }) => {
             <TextInput
               {...inputOptions}
               secureTextEntry={true}
-              placeholder="Password"
+              label="Password"
               value={password}
               onChangeText={(val) =>
                 setUserCredentials({ ...userCredentials, password: val })
@@ -181,7 +182,7 @@ const RegisterScreen = ({ navigation, route }) => {
 
             <TextInput
               {...inputOptions}
-              placeholder="Occupation"
+              label="Occupation"
               value={occupation}
               onChangeText={(val) =>
                 setUserCredentials({ ...userCredentials, occupation: val })
@@ -189,7 +190,7 @@ const RegisterScreen = ({ navigation, route }) => {
             />
             <TextInput
               {...inputOptions}
-              placeholder="Adhar Number"
+              label="Adhar Number"
               value={adhar}
               onChangeText={(val) =>
                 setUserCredentials({ ...userCredentials, adhar: val })
@@ -200,7 +201,7 @@ const RegisterScreen = ({ navigation, route }) => {
 
             <TextInput
               {...inputOptions}
-              placeholder="Mobile Number"
+              label="Mobile Number"
               value={mobile}
               onChangeText={(val) =>
                 setUserCredentials({ ...userCredentials, mobile: val })

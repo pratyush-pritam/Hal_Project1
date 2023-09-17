@@ -11,6 +11,10 @@ import { defaultStyle, colors, inputOptions } from "../constants/styles";
 import { Avatar, TextInput } from "react-native-paper";
 import SquareMenuButton from "../components/SquareMenuButton";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { Picker } from "@react-native-picker/picker";
+import { doctors, hospitalOptions } from "../constants/data";
+import LinearGradient from "react-native-linear-gradient";
+import Menu from "../components/Menu";
 
 const BookingScreen = ({ navigation, route }) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -34,9 +38,14 @@ const BookingScreen = ({ navigation, route }) => {
     setSelectedDate(date);
     hideDatePicker();
   };
+
+  const setDoctorNameRoute = route.params ? route.params.doctor : doctors[0]
+  console.log({ setDoctorNameRoute })
   return (
     <TouchableWithoutFeedback onPress={closeMenu}>
-      <View style={{ ...defaultStyle, padding: 0, backgroundColor: colors.headingColor }}>
+      <LinearGradient
+        colors={[colors.mainColor, "#f5f8f8"]}
+        style={{ ...defaultStyle, padding: 0, backgroundColor: colors.headingColor }}>
         <View
           style={{
             flex: 1,
@@ -55,12 +64,7 @@ const BookingScreen = ({ navigation, route }) => {
               />
             </TouchableOpacity>
             <SquareMenuButton onPress={() => setVisible(!visible)} color={"#ffff"} />
-            {visible && (
-              <View style={styles.menu}>
-                <Text style={styles.boxTitle}>Help</Text>
-                <Text style={styles.boxTitle}>Contact Us</Text>
-              </View>
-            )}
+            {visible && <Menu />}
           </View>
           <View style={{ marginBottom: 10 }}>
             <Text
@@ -91,17 +95,31 @@ const BookingScreen = ({ navigation, route }) => {
                 showsVerticalScrollIndicator={false}
                 style={{ width: "85%" }}
               >
-                <TextInput
-                  {...inputOptions}
-                  placeholder="Hospital Name"
-                  value={Hospital}
-                  onChangeText={(text) => setHospital(text)}
-                />
+                <View
+                  style={{
+                    backgroundColor: "#FFFBFF",
+                    borderColor: colors.textColor,
+                    borderWidth: 1,
+                    borderRadius: 5,
+                  }}
+                >
+                  <Picker
+                    selectedValue={Hospital}
+                    onValueChange={(text) => setHospital(text)}
+
+                  >
+                    <Picker.Item label="Select Hospital" value="" />
+                    {hospitalOptions.map((hospital) => (
+                      <Picker.Item key={hospital.key} label={hospital.label} value={hospital.label} />
+                    ))}
+                  </Picker>
+                </View>
                 <TextInput
                   {...inputOptions}
                   placeholder="Department Name"
                   value={deartment}
                   onChangeText={(text) => setDepartment(text)}
+                  style={{ paddingLeft: 2 }}
                 />
                 <TouchableOpacity
                   onPress={showDatePicker}
@@ -111,7 +129,7 @@ const BookingScreen = ({ navigation, route }) => {
                     padding: 14,
                     backgroundColor: "#FFFBFF",
                     marginTop: 7,
-                    borderRadius: 4,
+                    borderRadius: 5,
                   }}
                 >
                   <Text>
@@ -131,6 +149,7 @@ const BookingScreen = ({ navigation, route }) => {
                   placeholder="Prefer Doctor Name(Optional)"
                   value={doctorName}
                   onChangeText={(text) => setDoctorName(text)}
+                  style={{ paddingLeft: 2 }}
                 />
                 <Text style={{ fontSize: 18, marginTop: 5 }}>
                   Available time slots
@@ -181,7 +200,7 @@ const BookingScreen = ({ navigation, route }) => {
                   }}
                   onPress={() =>
                     navigation.navigate("PatientInfo", {
-                      doctor: route.params.doctor,
+                      doctor: setDoctorNameRoute,
                     })
                   }
                 >
@@ -200,7 +219,7 @@ const BookingScreen = ({ navigation, route }) => {
             </View>
           </View>
         </View>
-      </View>
+      </LinearGradient>
     </TouchableWithoutFeedback>
   );
 };
@@ -213,24 +232,5 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 15,
     alignItems: "center",
-  },
-  menu: {
-    position: "absolute",
-    top: 60,
-    right: 25,
-    zIndex: 1,
-    backgroundColor: "#fff",
-    borderRadius: 7,
-    height: 70,
-    width: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    elevation: 5,
-  },
-  boxTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: colors.textColor,
-    textAlign: "center",
-  },
+  }
 });

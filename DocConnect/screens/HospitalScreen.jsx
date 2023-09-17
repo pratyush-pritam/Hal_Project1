@@ -13,13 +13,15 @@ import SquareMenuButton from "../components/SquareMenuButton";
 import Tab from "../components/Tab";
 import { healthCategories } from "../constants/data";
 import { Entypo } from "@expo/vector-icons";
-// import ChatComponent from "../components/ChatComponent";
+import ChartComponent from "../components/ChartComponent";
+import Menu from "../components/Menu";
 
-const HospitalScreen = ({ navigation }) => {
+const HospitalScreen = ({ navigation, route }) => {
   const [visible, setVisible] = useState(false);
   const closeMenu = () => {
     setVisible(false);
   };
+
   return (
     <TouchableWithoutFeedback onPress={closeMenu}>
       <View style={{ ...defaultStyle, padding: 0 }}>
@@ -30,7 +32,7 @@ const HospitalScreen = ({ navigation }) => {
           }}
         >
           <View style={styles.heading}>
-            <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
               <Avatar.Icon
                 icon={"arrow-left"}
                 style={{
@@ -41,12 +43,7 @@ const HospitalScreen = ({ navigation }) => {
               />
             </TouchableOpacity>
             <SquareMenuButton onPress={() => setVisible(!visible)} />
-            {visible && (
-              <View style={styles.menu}>
-                <Text style={styles.boxTitle}>Help</Text>
-                <Text style={styles.boxTitle}>Contact Us</Text>
-              </View>
-            )}
+            {visible && <Menu />}
           </View>
           <View style={{ height: "12%" }} />
           <View style={{ marginBottom: 10, paddingLeft: 25 }}>
@@ -56,7 +53,7 @@ const HospitalScreen = ({ navigation }) => {
                 fontWeight: "bold",
               }}
             >
-              Apollo
+              {route?.params?.hospital}
             </Text>
             <View style={{ flexDirection: "row" }}>
               {[1, 2, 3, 4, 5].map((item) => (
@@ -113,24 +110,5 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 15,
     alignItems: "center",
-  },
-  menu: {
-    position: "absolute",
-    top: 60,
-    right: 25,
-    zIndex: 1,
-    backgroundColor: "#fff",
-    borderRadius: 7,
-    height: 70,
-    width: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    elevation: 5,
-  },
-  boxTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: colors.textColor,
-    textAlign: "center",
-  },
+  }
 });

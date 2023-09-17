@@ -12,6 +12,8 @@ import { healthCategories } from "../constants/data";
 import { Avatar } from "react-native-paper";
 import SquareMenuButton from "../components/SquareMenuButton";
 import firestore from "@react-native-firebase/firestore";
+import LinearGradient from "react-native-linear-gradient";
+import Menu from "../components/Menu";
 
 const DepartmentScreen = ({ navigation }) => {
   const [visible, setVisible] = useState(false);
@@ -34,7 +36,9 @@ const DepartmentScreen = ({ navigation }) => {
 
   return (
     <TouchableWithoutFeedback onPress={closeMenu}>
-      <View style={{ ...defaultStyle, padding: 0, backgroundColor: colors.mainColor }}>
+      <LinearGradient
+        colors={[colors.mainColor, "#f5f8f8"]}
+        style={{ ...defaultStyle, padding: 0, backgroundColor: colors.headingColor }}>
         <View
           style={{
             flex: 1,
@@ -53,30 +57,26 @@ const DepartmentScreen = ({ navigation }) => {
               />
             </TouchableOpacity>
             <SquareMenuButton onPress={() => setVisible(!visible)} color={"#ffff"} />
-            {visible && (
-              <View style={styles.menu}>
-                <Text style={styles.boxTitle}>Help</Text>
-                <Text style={styles.boxTitle}>Contact Us</Text>
-              </View>
-            )}
+            {visible && <Menu />}
           </View>
-          <View style={{ height: "7%" }} />
           <View style={{ marginBottom: 10 }}>
             <Text
               style={{
                 paddingHorizontal: 25,
-                fontSize: 30,
+                fontSize: 35,
                 fontWeight: "bold",
-                color: colors.backgroundColor
+                color: colors.backgroundColor,
+                textAlign: 'center'
               }}
             >
               Departments
             </Text>
+            <View style={{ height: "7%" }} />
           </View>
           <View
             style={{
-              borderWidth: 1,
-              borderTopLeftRadius: 100,
+              // borderWidth: 1,
+              borderTopLeftRadius: 70,
               borderColor: colors.textColor,
               flex: 2,
               backgroundColor: colors.backgroundColor
@@ -94,15 +94,12 @@ const DepartmentScreen = ({ navigation }) => {
                     style={{
                       width: "100%",
                       backgroundColor: colors.mainColor,
-                      borderRadius: 12,
+                      borderRadius: colors.br,
                       marginBottom: 15,
                       flexDirection: "row",
                       height: 60,
-                      elevation: 5,
                       alignItems: "center",
                       justifyContent: "center",
-                      borderWidth: 1,
-
                     }}
                     onPress={() => navigateTo(item)}
                   >
@@ -115,7 +112,7 @@ const DepartmentScreen = ({ navigation }) => {
             </View>
           </View>
         </View>
-      </View>
+      </LinearGradient>
     </TouchableWithoutFeedback>
   );
 };
@@ -128,24 +125,5 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 15,
     alignItems: "center",
-  },
-  menu: {
-    position: "absolute",
-    top: 60,
-    right: 25,
-    zIndex: 1,
-    backgroundColor: "#fff",
-    borderRadius: 7,
-    height: 70,
-    width: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    elevation: 5,
-  },
-  boxTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: colors.textColor,
-    textAlign: "center",
   },
 });

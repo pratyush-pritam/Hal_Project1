@@ -8,7 +8,7 @@ import RNUpiPayment from "react-native-upi-payment"
 const FinalBookScreen = ({ navigation, route }) => {
   const handlePayment = () => {
     RNUpiPayment.initializePayment({
-      vpa: '9937089957@ybl', // or can be john@ybl or mobileNo@upi
+      vpa: 'pratyushpritam88@okhdfcbank', // or can be john@ybl or mobileNo@upi
       payeeName: 'SUM',
       amount: '5',
       transactionRef: 'aasf-332-aoei-fn'
@@ -97,7 +97,7 @@ const FinalBookScreen = ({ navigation, route }) => {
             <Text style={styles.text}>Discount </Text>
             <Text style={styles.text}>Rs. 0</Text>
           </View>
-          <View style={styles.container}>
+          <View style={{ ...styles.container, borderBottomWidth: 2 }}>
             <Text style={styles.text}>Total </Text>
             <Text style={styles.text}>Rs. 600</Text>
           </View>
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    borderBottomWidth: 1,
+    // borderBottomWidth: 1,
     borderBottomColor: colors.borderColor,
     paddingVertical: 10,
   },

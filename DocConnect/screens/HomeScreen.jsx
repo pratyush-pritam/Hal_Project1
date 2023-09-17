@@ -1,5 +1,6 @@
 import {
   Dimensions,
+  Image,
   ScrollView,
   StyleSheet,
   Text,
@@ -10,7 +11,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { colors, defaultStyle, } from "../constants/styles";
 import { Avatar, Searchbar, } from "react-native-paper";
-import { categories, doctors, } from "../constants/data";
+import { categories, doctors, newsArticles, } from "../constants/data";
 import Tab from "../components/Tab";
 import SquareMenuButtton from "../components/SquareMenuButton";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,11 +19,14 @@ import { loadUser } from "../redux/action";
 import { FontAwesome5 } from '@expo/vector-icons';
 import ChatBot from "../components/ChatBot";
 import LinearGradient from 'react-native-linear-gradient';
+import axios from "axios";
+import Loader from "../components/Loader";
+import Menu from "../components/Menu";
 
 
 const width = Dimensions.get('window').width;
 
-const arr = ["info", "info", "info", "info"];
+const arr = ["MediAid", "HealthPlan", "CareNet", "HealthLine"];
 
 const renderCategorySection = (title, items, navigateTo, navigation) => {
   return (
@@ -67,6 +71,9 @@ const renderCategorySection = (title, items, navigateTo, navigation) => {
 const HomeScreen = ({ navigation, route }) => {
   const [visible, setVisible] = useState(false);
   const [chatVisible, setChatVisible] = useState(false);
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(false)
+
   const closeMenu = () => {
     setVisible(false);
   };
@@ -76,6 +83,28 @@ const HomeScreen = ({ navigation, route }) => {
     dispatch(loadUser());
   }, [route]);
   const { user } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        setLoading(true)
+        const { data } = await axios.get(newsArticles);
+
+        const first10Articles = data.articles.slice(0, 10);
+
+        const images = first10Articles.map((article) => article.urlToImage);
+
+        setArticles(images);
+        setLoading(false)
+      } catch (error) {
+        console.log(error);
+        setLoading(false)
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
 
   return (
     <TouchableWithoutFeedback onPress={closeMenu}>
@@ -106,12 +135,7 @@ const HomeScreen = ({ navigation, route }) => {
                 />
               </TouchableOpacity>
               <SquareMenuButtton onPress={() => setVisible(!visible)} />
-              {visible && (
-                <View style={styles.menu}>
-                  <Text style={styles.boxTitle}>Help</Text>
-                  <Text style={styles.boxTitle}>Contact Us</Text>
-                </View>
-              )}
+              {visible && <Menu />}
             </View>
             <View>
               <Text
@@ -134,7 +158,7 @@ const HomeScreen = ({ navigation, route }) => {
               onPressIn={() => navigation.navigate("Search")}
             />
             <TouchableOpacity
-              onPress={() => navigation.navigate("Doctors")}
+              onPress={() => navigation.navigate("Booking")}
               activeOpacity={0.8}
               style={{
                 backgroundColor: colors.mainColor,
@@ -185,7 +209,46 @@ const HomeScreen = ({ navigation, route }) => {
             {/* Govt. Scheme */}
             {renderCategorySection("Govt. Schemes for you", arr)}
             {/* Recommended Articles */}
-            {renderCategorySection("Recommended Articles", arr, "Articles", navigation)}
+            <View>
+              <Text style={styles.sectionTitle}>Recommended Articles</Text>
+              <ScrollView
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{ gap: 10 }}
+              >
+                {
+                  loading ? <Loader color="#000" /> : articles.map((article, index) => (
+                    <TouchableOpacity
+                      key={index}
+                      onPress={() => navigation.navigate("Articles")}
+                      style={{
+                        backgroundColor: colors.mainColor,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: colors.br,
+                      }}
+                    >
+                      <Image source={{
+                        uri: article
+                      }}
+                        style={{
+                          width: 200,
+                          height: 200,
+                          borderRadius: colors.br,
+                        }}
+                        resizeMode="cover"
+                      />
+                    </TouchableOpacity>
+                  ))
+                }
+              </ScrollView>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Articles")}
+                style={{ width: "100%", alignSelf: "flex-end" }}
+              >
+                <Text style={styles.seeAll}>See all</Text>
+              </TouchableOpacity>
+            </View>
             {/* Popular Doctors */}
             {renderCategorySection(
               "Popular Doctors",
@@ -214,7 +277,6 @@ const HomeScreen = ({ navigation, route }) => {
               left: 5,
               width: width - 10,
               height: '80%',
-              // borderRadius: 20,
             }}>
               <ChatBot setChatVisible={setChatVisible} visible={chatVisible} />
             </View>
@@ -231,19 +293,6 @@ const HomeScreen = ({ navigation, route }) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  menu: {
-    position: "absolute",
-    top: 60,
-    right: 25,
-    zIndex: 1,
-    backgroundColor: "#fff",
-    borderRadius: 7,
-    height: 70,
-    width: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    elevation: 5,
-  },
   heading: {
     flexDirection: "row",
     alignItems: "center",
@@ -270,12 +319,7 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     elevation: 2,
   },
-  boxTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: colors.textColor,
-    textAlign: "center",
-  },
+
   sectionTitle: {
     fontWeight: "bold",
     fontSize: 23,

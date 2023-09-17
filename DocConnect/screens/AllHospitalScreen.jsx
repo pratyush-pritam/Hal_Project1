@@ -7,11 +7,12 @@ import {
     TouchableWithoutFeedback
 } from "react-native";
 import React, { useState } from "react";
-import { defaultStyle, colors } from "../../constants/styles";
+import { defaultStyle, colors } from "../constants/styles";
 import { Avatar } from "react-native-paper";
-import SquareMenuButton from "../../components/SquareMenuButton";
+import SquareMenuButton from "../components/SquareMenuButton";
+import Menu from "../components/Menu";
 
-const hospitals = ["SUM", "AIIMS", "UTKAL"];
+export const hospitals = ["SUM", "AIIMS", "UTKAL"];
 
 const AllHospitalScreen = ({ navigation }) => {
     const [visible, setVisible] = useState(false);
@@ -45,10 +46,7 @@ const AllHospitalScreen = ({ navigation }) => {
                         </TouchableOpacity>
                         <SquareMenuButton onPress={() => setVisible(!visible)} color={"#fff"} />
                         {visible && (
-                            <View style={styles.menu}>
-                                <Text style={styles.boxTitle}>Help</Text>
-                                <Text style={styles.boxTitle}>Contact Us</Text>
-                            </View>
+                            <Menu />
                         )}
                     </View>
                     <View style={{ marginBottom: 10 }}>
@@ -119,23 +117,5 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         alignItems: "center",
     },
-    menu: {
-        position: "absolute",
-        top: 60,
-        right: 25,
-        zIndex: 1,
-        backgroundColor: "#fff",
-        borderRadius: 7,
-        height: 70,
-        width: 100,
-        alignItems: "center",
-        justifyContent: "center",
-        elevation: 5,
-    },
-    boxTitle: {
-        fontSize: 16,
-        fontWeight: "bold",
-        color: colors.textColor,
-        textAlign: "center",
-    },
+
 });

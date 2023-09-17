@@ -9,6 +9,7 @@ import React, { useState } from "react";
 import { colors, defaultStyle, inputOptions } from "../constants/styles";
 import { Avatar, TextInput } from "react-native-paper";
 import Loader from "../components/Loader";
+import LinearGradient from "react-native-linear-gradient";
 
 const UpdateSavedScreen = ({ navigation }) => {
   const [userCredentials, setUserCredentials] = useState({
@@ -26,7 +27,9 @@ const UpdateSavedScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={{ ...defaultStyle, padding: 0, backgroundColor: colors.mainColor }}>
+    <LinearGradient
+      colors={[colors.mainColor, "#f5f8f8"]}
+      style={{ ...defaultStyle, padding: 0, backgroundColor: colors.mainColor }}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Avatar.Icon
           icon={"arrow-left"}
@@ -40,7 +43,7 @@ const UpdateSavedScreen = ({ navigation }) => {
       <View>
         <Text
           style={{
-            fontSize: 25,
+            fontSize: 35,
             fontWeight: "500",
             textAlign: "center",
             color: colors.backgroundColor,
@@ -55,7 +58,7 @@ const UpdateSavedScreen = ({ navigation }) => {
         style={{
           padding: 20,
           borderRadius: 10,
-          borderTopLeftRadius: 100,
+          borderTopLeftRadius: 70,
           borderWidth: 1,
           backgroundColor: colors.backgroundColor
         }}
@@ -64,25 +67,25 @@ const UpdateSavedScreen = ({ navigation }) => {
         <View style={{ gap: 10 }}>
           <TextInput
             {...inputOptions}
-            placeholder="Name"
             value={userCredentials.name}
             onChangeText={(val) =>
               setUserCredentials({ ...userCredentials, name: val })
             }
+            label={"Name"}
           />
           <TextInput
             {...inputOptions}
-            placeholder="Email"
             keyboardType="email-address"
             value={userCredentials.email}
             onChangeText={(val) =>
               setUserCredentials({ ...userCredentials, email: val })
             }
             autoCapitalize="none"
+            label={"Email"}
           />
           <TextInput
             {...inputOptions}
-            placeholder="Age"
+            label="Age"
             value={userCredentials.age}
             onChangeText={(val) =>
               setUserCredentials({ ...userCredentials, age: val })
@@ -92,7 +95,7 @@ const UpdateSavedScreen = ({ navigation }) => {
 
           <TextInput
             {...inputOptions}
-            placeholder="Occupation"
+            label="Occupation"
             value={userCredentials.occupation}
             onChangeText={(val) =>
               setUserCredentials({ ...userCredentials, occupation: val })
@@ -100,22 +103,24 @@ const UpdateSavedScreen = ({ navigation }) => {
           />
           <TextInput
             {...inputOptions}
-            placeholder="Adhar Number"
+            label="Adhar Number"
             value={userCredentials.adhar}
             onChangeText={(val) =>
               setUserCredentials({ ...userCredentials, adhar: val })
             }
             keyboardType="number-pad"
+            maxLength={12}
           />
 
           <TextInput
             {...inputOptions}
-            placeholder="Mobile Number"
+            label="Mobile Number"
             value={userCredentials.mobile}
             onChangeText={(val) =>
               setUserCredentials({ ...userCredentials, mobile: val })
             }
             keyboardType="number-pad"
+            maxLength={10}
           />
           <TouchableOpacity
             style={styles.btn}
@@ -139,7 +144,7 @@ const UpdateSavedScreen = ({ navigation }) => {
         </View>
         <View style={{ marginBottom: 80 }} />
       </ScrollView>
-    </View>
+    </LinearGradient>
   );
 };
 

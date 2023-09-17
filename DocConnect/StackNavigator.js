@@ -30,6 +30,8 @@ import BookingScreen from "./screens/BookingScreen";
 import FinalBookScreen from "./screens/FinalBookScreen";
 import PatientScreen from "./screens/PatientScreen";
 import AllHospitalScreen from "./screens/AllHospitalScreen";
+import AboutScreen from "./screens/AboutScreen";
+import ContactUsScreen from "./screens/ContactUsScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -54,9 +56,15 @@ function Navigation() {
   if (showOnboarding === null) {
     return (
       <View
-        style={{ flex: 1, display: "flex", backgroundColor: colors.backgroundColor,justifyContent:"center",alignItems:"center" }}
+        style={{
+          flex: 1,
+          display: "flex",
+          backgroundColor: colors.backgroundColor,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        <Loader height={100} width={100} color="black"/>
+        <Loader height={100} width={100} color="black" />
       </View>
     );
   }
@@ -77,8 +85,8 @@ function Navigation() {
         {showOnboarding && (
           <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         )}
-       
-       <Stack.Screen name="Home" component={HomeScreen} />
+
+        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Camera" component={CameraComponent} />
@@ -94,11 +102,16 @@ function Navigation() {
         <Stack.Screen name="Hospitals" component={HospitalScreen} />
         <Stack.Screen name="DoctorDetails" component={DoctorDetailsScreen} />
         <Stack.Screen name="Departments" component={DepartmentScreen} />
-        <Stack.Screen name="ParticularDepartment"component={DepartmentParticularScreen}/>
+        <Stack.Screen
+          name="ParticularDepartment"
+          component={DepartmentParticularScreen}
+        />
         <Stack.Screen name="Booking" component={BookingScreen} />
         <Stack.Screen name="PatientInfo" component={PatientScreen} />
         <Stack.Screen name="FinalBooking" component={FinalBookScreen} />
         <Stack.Screen name="AllHospital" component={AllHospitalScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen name="Contact" component={ContactUsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -54,6 +54,8 @@ const LoginScreen = ({ route }) => {
         errorMessage = "Please Register First";
       } else if (error.code === "auth/wrong-password") {
         errorMessage = "Invalid Password";
+      } else if (error.code === "auth/invalid-login") {
+        errorMessage = "Invalid Credentials"
       }
 
       errorMessage &&
@@ -61,7 +63,7 @@ const LoginScreen = ({ route }) => {
           type: "error",
           text1: errorMessage,
         });
-
+      console.log(error)
       setLoading(false);
     }
   };
@@ -75,7 +77,7 @@ const LoginScreen = ({ route }) => {
             <TextInput
               {...inputOptions}
               style={styles.input}
-              placeholder="Email"
+              label="Email"
               value={email}
               onChangeText={(val) =>
                 setUserCredentials({ ...userCredentials, email: val })
@@ -88,7 +90,7 @@ const LoginScreen = ({ route }) => {
               {...inputOptions}
               style={styles.input}
               placeholderTextColor={"#000"}
-              placeholder="Password"
+              label="Password"
               value={password}
               onChangeText={(val) =>
                 setUserCredentials({ ...userCredentials, password: val })

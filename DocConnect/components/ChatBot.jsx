@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { ScrollView, Text, View, TouchableOpacity } from 'react-native';
 import { colors, inputOptions } from '../constants/styles';
 import { TextInput } from 'react-native-paper';
 import axios from 'axios';
@@ -10,7 +10,8 @@ const ChatBot = ({ setChatVisible, visible }) => {
 
     const handleQuerySubmit = async () => {
         try {
-            const apiUrl = 'http://192.168.163.68:5000/chat';
+            const apiUrl = 'http://ip4v:5000/chat';
+            //ipconfig in cmd and get the ipv4 address
 
             const requestData = {
                 message: query,
@@ -47,14 +48,14 @@ const ChatBot = ({ setChatVisible, visible }) => {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     padding: 10,
-                    borderBottomWidth: 1,
-                    borderBottomColor: colors.textColor,
+                    backgroundColor: "transparent",
+                    width: "20%"
                 }}
             >
                 <Text
                     style={{
                         color: colors.textColor,
-                        fontSize: 18,
+                        fontSize: 38,
                     }}
                 >X
                 </Text>
@@ -94,7 +95,6 @@ const ChatBot = ({ setChatVisible, visible }) => {
                                             : colors.secondaryColor,
                                     padding: 10,
                                     borderRadius: 10,
-                                    // maxWidth: '10%',
                                 }}
                             >
                                 {message.text}
@@ -110,7 +110,6 @@ const ChatBot = ({ setChatVisible, visible }) => {
                 value={query}
                 onChangeText={(text) => setQuery(text)}
                 onSubmitEditing={handleQuerySubmit}
-                style={{}}
             />
         </View>
     );
@@ -118,4 +117,3 @@ const ChatBot = ({ setChatVisible, visible }) => {
 
 export default ChatBot;
 
-const styles = StyleSheet.create({});

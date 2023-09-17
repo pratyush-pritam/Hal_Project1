@@ -26,19 +26,19 @@ export const doctors = [
     age: 45,
   },
   {
-    name: "Dr. Sarah Johnson",
+    name: "Dr. Aditya",
     details: "Pediatrician specializing in child healthcare",
     specialist: "Pediatrics",
     age: 38,
   },
   {
-    name: "Dr. Emily Brown",
+    name: "Dr. Aditya",
     details: "Orthopedic surgeon for bone and joint disorders",
     specialist: "Orthopedics",
     age: 50,
   },
   {
-    name: "Dr. Kadia Brown",
+    name: "Dr. Aditya",
     details: "Orthopedic surgeon for bone and joint disorders",
     specialist: "Neurology",
     age: 51,
@@ -105,17 +105,19 @@ export const newsArticles =
 export const healthCategories = [
   "Cardiology",
   "Pediatrics",
-  "Orthopedics",
   "Neurology",
-  "Gynecology",
   "Dermatology",
-  "Ophthalmology",
   "Psychiatry",
   "Urology",
   "Nephrology",
   "Gastroenterology",
   "Endocrinology",
   "Pulmonology",
-  "Rheumatology",
-  "Oncology",
+];
+
+export const hospitalOptions = [
+  { key: "hospital1", label: "SUM" },
+  { key: "hospital2", label: "AIIMS" },
+  { key: "hospital3", label: "UTKAL" },
+  { key: "hospital3", label: "APOLO" },
 ];

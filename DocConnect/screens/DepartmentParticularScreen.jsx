@@ -8,10 +8,11 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { defaultStyle, colors } from "../constants/styles";
-import { categories, doctors, healthCategories } from "../constants/data";
+import { doctors } from "../constants/data";
 import { Avatar } from "react-native-paper";
 import SquareMenuButton from "../components/SquareMenuButton";
 import { Entypo } from "@expo/vector-icons";
+import Menu from "../components/Menu";
 
 const DepartmentParticularScreen = ({ route, navigation }) => {
   const [visible, setVisible] = useState(false);
@@ -27,7 +28,7 @@ const DepartmentParticularScreen = ({ route, navigation }) => {
 
   return (
     <TouchableWithoutFeedback onPress={closeMenu}>
-      <View style={{ ...defaultStyle, padding: 0 }}>
+      <View style={{ ...defaultStyle, padding: 0, backgroundColor: colors.headingColor }}>
         <View
           style={{
             flex: 1,
@@ -39,38 +40,36 @@ const DepartmentParticularScreen = ({ route, navigation }) => {
               <Avatar.Icon
                 icon={"arrow-left"}
                 style={{
-                  backgroundColor: colors.backgroundColor,
+                  backgroundColor: "transparent",
                   resizeMode: "contain",
                 }}
-                color={colors.textColor}
+                color={colors.backgroundColor}
               />
             </TouchableOpacity>
-            <SquareMenuButton onPress={() => setVisible(!visible)} />
-            {visible && (
-              <View style={styles.menu}>
-                <Text style={styles.boxTitle}>Help</Text>
-                <Text style={styles.boxTitle}>Contact Us</Text>
-              </View>
-            )}
+            <SquareMenuButton onPress={() => setVisible(!visible)} color={"#fff"} />
+            {visible && <Menu />}
           </View>
-          <View style={{ height: "15%" }} />
           <View style={{ marginBottom: 10 }}>
             <Text
               style={{
                 paddingHorizontal: 25,
-                fontSize: 30,
+                fontSize: 35,
                 fontWeight: "bold",
+                color: colors.backgroundColor,
+                textAlign: "center",
               }}
             >
               {route?.params?.department}
             </Text>
+            <View style={{ height: "7%" }} />
           </View>
           <View
             style={{
               borderWidth: 1,
-              borderTopLeftRadius: 100,
+              borderTopLeftRadius: 70,
               borderColor: colors.textColor,
               flex: 2,
+              backgroundColor: colors.backgroundColor
             }}
           >
             <View style={{ height: "10%" }} />
@@ -84,7 +83,7 @@ const DepartmentParticularScreen = ({ route, navigation }) => {
                     key={index}
                     style={{
                       width: "100%",
-                      backgroundColor: colors.backgroundColor,
+                      backgroundColor: colors.mainColor,
                       borderRadius: 12,
                       marginBottom: 15,
                       flexDirection: "row",
@@ -103,12 +102,13 @@ const DepartmentParticularScreen = ({ route, navigation }) => {
                         alignItems: "center",
                         padding: 7,
                         gap: 7,
+
                       }}
                     >
                       <Avatar.Icon
                         icon={"doctor"}
                         style={{
-                          backgroundColor: colors.primaryColor,
+                          backgroundColor: "transparent",
                         }}
                       />
                       <View
@@ -118,10 +118,10 @@ const DepartmentParticularScreen = ({ route, navigation }) => {
                         }}
                       >
                         <View>
-                          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+                          <Text style={{ fontSize: 20, fontWeight: "bold", color: colors.backgroundColor }}>
                             {item.name}
                           </Text>
-                          <Text style={{ fontSize: 14, fontWeight: "400" }}>
+                          <Text style={{ fontSize: 14, fontWeight: "400", color: colors.backgroundColor }}>
                             {item.specialist}
                           </Text>
                         </View>
@@ -132,9 +132,9 @@ const DepartmentParticularScreen = ({ route, navigation }) => {
                             justifyContent: "space-between",
                           }}
                         >
-                          <Text style={{ fontSize: 18 }}>
+                          <Text style={{ fontSize: 18, color: colors.backgroundColor }}>
                             5
-                            <Entypo name="star" color="black" size={18} />
+                            <Entypo name="star" color="white" size={18} />
                           </Text>
                           <View
                             style={{
@@ -146,12 +146,12 @@ const DepartmentParticularScreen = ({ route, navigation }) => {
                               style={{
                                 height: 15,
                                 width: 15,
-                                backgroundColor: colors.primaryColor,
+                                backgroundColor: "white",
                                 borderRadius: 100,
                                 marginRight: 5,
                               }}
                             />
-                            <Text>10:00AM - 3:00PM</Text>
+                            <Text style={{ color: colors.backgroundColor }}>10:00AM - 3:00PM</Text>
                           </View>
                         </View>
                       </View>
@@ -176,23 +176,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     alignItems: "center",
   },
-  menu: {
-    position: "absolute",
-    top: 60,
-    right: 25,
-    zIndex: 1,
-    backgroundColor: "#fff",
-    borderRadius: 7,
-    height: 70,
-    width: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    elevation: 5,
-  },
-  boxTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: colors.textColor,
-    textAlign: "center",
-  },
+
 });

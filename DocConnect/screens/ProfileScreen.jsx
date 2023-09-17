@@ -9,9 +9,12 @@ import Tab from "../components/Tab";
 import { useDispatch, useSelector } from "react-redux";
 import auth from "@react-native-firebase/auth";
 import Toast from "react-native-toast-message";
+import LinearGradient from "react-native-linear-gradient";
+import { StatusBar } from "expo-status-bar";
+
 
 const initialSelectedDates = ["2023-09-16", "2023-09-19"];
-const arr = [1, 2, 3];
+const arr = ["15th Aug", "2nd Sept", "15th Sept"];
 const ProfileScreen = ({ navigation }) => {
   const [selectedDates, setSelectedDates] = useState(initialSelectedDates);
   const { user } = useSelector((state) => state.user);
@@ -105,35 +108,33 @@ const ProfileScreen = ({ navigation }) => {
   );
 
   return (
-    <View style={{ ...defaultStyle, padding: 0 }}>
-      <View style={{ position: "relative" }}>
+
+    <LinearGradient
+      colors={["#9ac8d6", "#f5f8f8"]}
+      style={{ ...defaultStyle, padding: 0 }}>
+      <ScrollView
+        style={{
+          flex: 1,
+        }}
+        showsVerticalScrollIndicator={false}
+      >
+        <StatusBar style="light" />
         <TouchableOpacity
           onPress={() => navigation.navigate("Home")}
           style={{
-            backgroundColor: colors.backgroundColor,
-            position: "absolute",
-            zIndex: 999,
-            top: -10,
+            backgroundColor: "transparent",
+            width: "20%"
           }}
         >
           <Avatar.Icon
             icon={"arrow-left"}
             style={{
-              backgroundColor: colors.backgroundColor,
+              backgroundColor: "transparent",
               resizeMode: "contain",
             }}
-            color={colors.secondaryColor}
+            color={colors.textColor}
           />
         </TouchableOpacity>
-      </View>
-      <ScrollView
-        style={{
-          flex: 1,
-          backgroundColor: colors.backgroundColor,
-          position: "relative",
-        }}
-        showsVerticalScrollIndicator={false}
-      >
         <View style={styles.container}>
           <View style={styles.innerContainer}>
             <Avatar.Image
@@ -261,12 +262,9 @@ const ProfileScreen = ({ navigation }) => {
           </View>
           <View>
             <TouchableOpacity style={styles.settingBox}>
-              <Text style={styles.settingBoxText}>Security</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.settingBox}>
               <Text style={styles.settingBoxText}>Payment History</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.settingBox}>
+            <TouchableOpacity style={styles.settingBox} onPress={() => navigation.navigate("About")}>
               <Text style={styles.settingBoxText}>About</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.settingBox} onPress={logoutHandler}>
@@ -276,7 +274,8 @@ const ProfileScreen = ({ navigation }) => {
           <View style={{ marginBottom: 10 }} />
         </View>
       </ScrollView>
-    </View>
+    </LinearGradient >
+
   );
 };
 

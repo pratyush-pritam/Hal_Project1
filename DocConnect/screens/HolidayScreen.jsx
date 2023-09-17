@@ -9,6 +9,8 @@ import {
 import { indianHolidays } from "../constants/data";
 import { colors, defaultStyle } from "../constants/styles";
 import { Avatar } from "react-native-paper";
+import { StatusBar } from "expo-status-bar";
+import LinearGradient from "react-native-linear-gradient";
 
 const HolidayScreen = ({ navigation }) => {
   const renderItem = ({ item }) => (
@@ -19,7 +21,10 @@ const HolidayScreen = ({ navigation }) => {
   );
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={["#9ac8d6", "#f5f8f8"]}
+      style={styles.container}>
+      <StatusBar style="dark" />
       <FlatList
         data={indianHolidays}
         renderItem={renderItem}
@@ -27,20 +32,22 @@ const HolidayScreen = ({ navigation }) => {
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
           <View style={styles.header}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity onPress={() => navigation.goBack()}
+              style={{ position: 'absolute', left: 0, zIndex: 999 }}
+            >
               <Avatar.Icon
                 icon={"arrow-left"}
                 style={{
-                  backgroundColor: colors.backgroundColor,
+                  backgroundColor: "transparent",
                   resizeMode: "contain",
                 }}
                 color={colors.textColor}
-                size={49}
+                size={60}
               />
             </TouchableOpacity>
             <Text
               style={{
-                fontSize: 20,
+                fontSize: 26,
                 fontWeight: "bold",
                 flex: 1,
                 textAlign: "center",
@@ -55,7 +62,7 @@ const HolidayScreen = ({ navigation }) => {
           alignItems: "center",
         }}
       />
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -70,9 +77,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     alignItems: "center",
+    position: 'relative'
   },
   itemContainer: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: colors.mainColor,
     borderRadius: 8,
     padding: 16,
     marginBottom: 12,
@@ -82,12 +90,12 @@ const styles = StyleSheet.create({
   holidayName: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: colors.backgroundColor,
     marginBottom: 8,
   },
   holidayDate: {
     fontSize: 16,
-    color: "#666",
+    color: colors.backgroundColor,
   },
 });
 

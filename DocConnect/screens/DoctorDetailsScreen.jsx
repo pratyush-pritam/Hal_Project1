@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { colors, defaultStyle } from "../constants/styles";
 import { Avatar } from "react-native-paper";
 import firestore from "@react-native-firebase/firestore";
+import { StatusBar } from "expo-status-bar";
 const DoctorDetailsScreen = ({ route, navigation }) => {
   const [doctor, setDoctor] = useState(route?.params?.doctor);
 
@@ -13,6 +14,8 @@ const DoctorDetailsScreen = ({ route, navigation }) => {
   }
   getData();
 
+  console.log({ doctor })
+
 
   return (
     <View style={{ ...defaultStyle, padding: 0 }}>
@@ -22,6 +25,7 @@ const DoctorDetailsScreen = ({ route, navigation }) => {
           backgroundColor: colors.backgroundColor,
         }}
       >
+        <StatusBar style="dark" />
         <Avatar.Icon
           icon={"arrow-left"}
           style={{

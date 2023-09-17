@@ -12,6 +12,7 @@ import { allCategories } from "../constants/data";
 import { Avatar } from "react-native-paper";
 import SquareMenuButton from "../components/SquareMenuButton";
 import { StatusBar } from "expo-status-bar";
+import Menu from "../components/Menu";
 
 const CategoryScreen = ({ navigation }) => {
   const [visible, setVisible] = useState(false);
@@ -42,12 +43,7 @@ const CategoryScreen = ({ navigation }) => {
               />
             </TouchableOpacity>
             <SquareMenuButton onPress={() => setVisible(!visible)} color={"#ffff"} />
-            {visible && (
-              <View style={styles.menu}>
-                <Text style={styles.boxTitle}>Help</Text>
-                <Text style={styles.boxTitle}>Contact Us</Text>
-              </View>
-            )}
+            {visible && <Menu />}
           </View>
           <View style={{ marginBottom: 10 }}>
             <Text
@@ -118,23 +114,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     alignItems: "center",
   },
-  menu: {
-    position: "absolute",
-    top: 60,
-    right: 25,
-    zIndex: 1,
-    backgroundColor: "#fff",
-    borderRadius: 7,
-    height: 70,
-    width: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    elevation: 5,
-  },
-  boxTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: colors.textColor,
-    textAlign: "center",
-  },
+
 });

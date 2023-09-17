@@ -17,9 +17,9 @@ import firestore from "@react-native-firebase/firestore";
 import auth from "@react-native-firebase/auth";
 import { Toast } from "react-native-toast-message/lib/src/Toast";
 import { loadUser } from "../redux/action";
-import { StatusBar } from "expo-status-bar";
+import LinearGradient from "react-native-linear-gradient";
 
-const arr = ["info", "info", "info", "info"];
+const arr = ["Kamala", "Aditya", "Prabya", "Pratyush", "Saswat"];
 
 const UpdateScreen = ({ navigation }) => {
   const { user } = useSelector((state) => state.user);
@@ -55,7 +55,9 @@ const UpdateScreen = ({ navigation }) => {
   };
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={{ ...defaultStyle, padding: 0, backgroundColor: colors.mainColor }}>
+      <LinearGradient
+        colors={[colors.mainColor, "#f5f8f8"]}
+        style={{ ...defaultStyle, padding: 0 }}>
         <View >
           <TouchableOpacity
             style={{ width: "20%" }}
@@ -97,10 +99,10 @@ const UpdateScreen = ({ navigation }) => {
           }}
         >
           <View style={{ height: "5%" }} />
-          <ScrollView showsVerticalScrollIndicator={false}>
+          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ gap: 7 }}>
             <TextInput
               {...inputOptions}
-              placeholder="Name"
+              label="Name"
               value={userCredentials.name}
               onChangeText={(val) =>
                 setUserCredentials({ ...userCredentials, name: val })
@@ -108,7 +110,7 @@ const UpdateScreen = ({ navigation }) => {
             />
             <TextInput
               {...inputOptions}
-              placeholder="Email"
+              label="Email"
               keyboardType="email-address"
               value={userCredentials.email}
               onChangeText={(val) =>
@@ -118,7 +120,7 @@ const UpdateScreen = ({ navigation }) => {
             />
             <TextInput
               {...inputOptions}
-              placeholder="Age"
+              label="Age"
               value={userCredentials.age}
               onChangeText={(val) =>
                 setUserCredentials({ ...userCredentials, age: val })
@@ -128,7 +130,7 @@ const UpdateScreen = ({ navigation }) => {
 
             <TextInput
               {...inputOptions}
-              placeholder="Occupation"
+              label="Occupation"
               value={userCredentials.occupation}
               onChangeText={(val) =>
                 setUserCredentials({ ...userCredentials, occupation: val })
@@ -137,24 +139,19 @@ const UpdateScreen = ({ navigation }) => {
             <TextInput
               {...inputOptions}
               editable={false}
-              placeholder="Adhar Number"
+              label="Adhar Number"
               value={userCredentials.adhar}
-              onChangeText={(val) =>
-                setUserCredentials({ ...userCredentials, adhar: val })
-              }
               keyboardType="number-pad"
               maxLength={12}
             />
 
             <TextInput
               {...inputOptions}
-              placeholder="Mobile Number"
+              label="Mobile Number"
               value={userCredentials.mobile}
-              onChangeText={(val) =>
-                setUserCredentials({ ...userCredentials, mobile: val })
-              }
               keyboardType="number-pad"
               maxLength={10}
+              editable={false}
             />
             <TouchableOpacity
               style={styles.btn}
@@ -209,7 +206,7 @@ const UpdateScreen = ({ navigation }) => {
             <View style={{ marginBottom: 20 }} />
           </ScrollView>
         </View>
-      </View >
+      </LinearGradient >
     </TouchableWithoutFeedback >
   );
 };
