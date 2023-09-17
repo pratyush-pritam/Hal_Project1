@@ -15,6 +15,7 @@ import { healthCategories } from "../constants/data";
 import { Entypo } from "@expo/vector-icons";
 import ChartComponent from "../components/ChartComponent";
 import Menu from "../components/Menu";
+import LinearGradient from "react-native-linear-gradient";
 
 const HospitalScreen = ({ navigation, route }) => {
   const [visible, setVisible] = useState(false);
@@ -24,7 +25,9 @@ const HospitalScreen = ({ navigation, route }) => {
 
   return (
     <TouchableWithoutFeedback onPress={closeMenu}>
-      <View style={{ ...defaultStyle, padding: 0 }}>
+      <LinearGradient
+        colors={[colors.mainColor, "#f5f8f8"]}
+        style={{ ...defaultStyle, padding: 0 }}>
         <View
           style={{
             flex: 1,
@@ -94,10 +97,10 @@ const HospitalScreen = ({ navigation, route }) => {
               <Tab text={"1"} />
               <Tab text={"2"} />
             </View>
-            <ChartComponent />
+            {/* <ChartComponent /> */}
           </View>
         </View>
-      </View>
+      </LinearGradient>
     </TouchableWithoutFeedback>
   );
 };

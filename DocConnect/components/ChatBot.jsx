@@ -10,7 +10,7 @@ const ChatBot = ({ setChatVisible, visible }) => {
 
     const handleQuerySubmit = async () => {
         try {
-            const apiUrl = 'http://ip4v:5000/chat';
+            const apiUrl = 'http://192.168.163.68/chat';
             //ipconfig in cmd and get the ipv4 address
 
             const requestData = {

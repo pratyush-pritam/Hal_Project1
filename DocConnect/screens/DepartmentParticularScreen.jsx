@@ -13,13 +13,14 @@ import { Avatar } from "react-native-paper";
 import SquareMenuButton from "../components/SquareMenuButton";
 import { Entypo } from "@expo/vector-icons";
 import Menu from "../components/Menu";
+import LinearGradient from "react-native-linear-gradient";
 
 const DepartmentParticularScreen = ({ route, navigation }) => {
   const [visible, setVisible] = useState(false);
   const closeMenu = () => {
     setVisible(false);
   };
-// Navigating to the doctor details screen
+  // Navigating to the doctor details screen
   const navigateTo = (item) => {
     navigation.navigate("DoctorDetails", {
       doctor: item,
@@ -28,7 +29,9 @@ const DepartmentParticularScreen = ({ route, navigation }) => {
 
   return (
     <TouchableWithoutFeedback onPress={closeMenu}>
-      <View style={{ ...defaultStyle, padding: 0, backgroundColor: colors.headingColor }}>
+      <LinearGradient
+        colors={[colors.mainColor, "#f5f8f8"]}
+        style={{ ...defaultStyle, padding: 0 }}>
         <View
           style={{
             flex: 1,
@@ -162,7 +165,7 @@ const DepartmentParticularScreen = ({ route, navigation }) => {
             </View>
           </View>
         </View>
-      </View>
+      </LinearGradient>
     </TouchableWithoutFeedback>
   );
 };
