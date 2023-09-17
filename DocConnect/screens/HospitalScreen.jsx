@@ -70,6 +70,7 @@ const HospitalScreen = ({ navigation, route }) => {
               borderTopLeftRadius: 100,
               borderColor: colors.textColor,
               flex: 1,
+              backgroundColor: colors.backgroundColor,
             }}
           >
             <View style={{ height: "10%" }} />
