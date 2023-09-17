@@ -12,11 +12,11 @@ import { allCategories } from "../constants/data";
 import { Avatar } from "react-native-paper";
 import SquareMenuButton from "../components/SquareMenuButton";
 
-/*const CategoryScreen = ({ navigation }) => {
+const CategoryScreen = ({ navigation }) => {
   const [visible, setVisible] = useState(false);
   const closeMenu = () => {
     setVisible(false);
-  };*/
+  };
   const navigateTo = (item) => {
     navigation.navigate(item.split(" ")[0]);
   };
