@@ -41,6 +41,7 @@ const RegisterScreen = ({ navigation, route }) => {
     !name || !email || !password || !mobile || !adhar || !age || !occupation;
 
   const saveData = async () => {
+    //Save data to firestore
     await firestore().collection("users").doc(auth().currentUser.uid).set({
       id: auth().currentUser.uid,
       username: name,

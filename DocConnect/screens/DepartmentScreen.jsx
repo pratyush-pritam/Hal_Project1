@@ -20,12 +20,13 @@ const DepartmentScreen = ({ navigation }) => {
   const closeMenu = () => {
     setVisible(false);
   };
+  // Navigating to the particular department screen
   const navigateTo = (item) => {
     navigation.navigate("ParticularDepartment", {
       department: item,
     });
   };
-
+//Fetching the data from the firestore
   const getData = async () => {
     const dr = await firestore().collection("Doctors_SUM").get();
     const drData = dr.docs.map((doc) => doc.data().department);

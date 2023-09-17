@@ -22,6 +22,7 @@ import LinearGradient from "react-native-linear-gradient";
 const arr = ["Kamala", "Aditya", "Prabya", "Pratyush", "Saswat"];
 
 const UpdateScreen = ({ navigation }) => {
+  //Update user details
   const { user } = useSelector((state) => state.user);
   const { username, email, mobile, adhar, age, occupation } = user;
   const [userCredentials, setUserCredentials] = useState({

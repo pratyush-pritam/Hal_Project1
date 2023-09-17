@@ -20,6 +20,7 @@ const ArticleScreen = ({ navigation }) => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  //fetching articles from the api
   useEffect(() => {
     const fetchArticles = async () => {
       try {

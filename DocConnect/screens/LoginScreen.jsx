@@ -33,8 +33,8 @@ const LoginScreen = ({ route }) => {
   const handleSubmit = async () => {
     setLoading(true);
     try {
+      // Login the user
       const isLogin = await auth().signInWithEmailAndPassword(email, password);
-
       Toast.show({
         type: "success",
         text1: "Welcome Back!!",

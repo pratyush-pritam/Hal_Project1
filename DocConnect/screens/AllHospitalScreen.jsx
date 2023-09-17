@@ -19,6 +19,8 @@ const AllHospitalScreen = ({ navigation }) => {
     const closeMenu = () => {
         setVisible(false);
     };
+
+    //Navigating to the hospital screen
     const navigateTo = (item) => {
         navigation.navigate("Hospitals", {
             hospital: item,
@@ -34,6 +36,7 @@ const AllHospitalScreen = ({ navigation }) => {
                     }}
                 >
                     <View style={styles.heading}>
+                        {/* Navigating to the home screen */}
                         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
                             <Avatar.Icon
                                 icon={"arrow-left"}

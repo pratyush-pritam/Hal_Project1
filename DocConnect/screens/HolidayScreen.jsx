@@ -13,6 +13,7 @@ import { StatusBar } from "expo-status-bar";
 import LinearGradient from "react-native-linear-gradient";
 
 const HolidayScreen = ({ navigation }) => {
+  //Rendering the holiday list
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
       <Text style={styles.holidayName}>{item.name}</Text>

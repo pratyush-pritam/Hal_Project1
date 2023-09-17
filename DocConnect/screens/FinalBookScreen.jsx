@@ -4,8 +4,9 @@ import { colors, defaultStyle } from "../constants/styles";
 import { Avatar } from "react-native-paper";
 import RNUpiPayment from "react-native-upi-payment"
 
-
+//Final booking screen
 const FinalBookScreen = ({ navigation, route }) => {
+  //Payment function
   const handlePayment = () => {
     RNUpiPayment.initializePayment({
       vpa: 'pratyushpritam88@okhdfcbank', // or can be john@ybl or mobileNo@upi

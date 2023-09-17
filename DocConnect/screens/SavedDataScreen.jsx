@@ -21,9 +21,33 @@ const UpdateSavedScreen = ({ navigation }) => {
     age: "",
     occupation: "",
   });
-  const loading = false; //TODO
-  const handleSubmit = () => {
-    // make api call to store the realtives of the user in the databaseu
+
+  const {
+    name,
+    email,
+    mobile,
+    adhar,
+    age,
+    occupation,
+  } = userCredentials;
+
+  const [loading, setLoading] = useState(false);//TODO
+  const handleSubmit = async () => {
+    // make api call to store the realtives of the user in the database
+    setLoading(true)
+    await firestore().collection("User_Family").add({
+      username: name,
+      email: email,
+      mobile: mobile,
+      adhar: adhar,
+      age: age,
+      occupation: occupation,
+    })
+    setLoading(false)
+    Toast.show({
+      type: "success",
+      text1: "Data Uploaded Successfully!!",
+    });
   };
 
   return (

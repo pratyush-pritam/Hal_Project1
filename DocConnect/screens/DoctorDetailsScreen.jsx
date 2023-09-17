@@ -7,6 +7,8 @@ import { StatusBar } from "expo-status-bar";
 const DoctorDetailsScreen = ({ route, navigation }) => {
   const [doctor, setDoctor] = useState(route?.params?.doctor);
 
+
+  //Fetching the data from the firestore
   const getData = async () => {
     const dr = await firestore().collection("Doctors_SUM").get();
     const drData = dr.docs.map((doc) => doc.data().designation);
