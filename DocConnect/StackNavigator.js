@@ -12,15 +12,25 @@ import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import CameraComponent from "./components/Camera";
 import OnboardingScreen from "./screens/OnBoardingScreen";
+import SearchScreen from "./screens/SearchScreen";
 import CategoryScreen from "./screens/CategoryScreen";
 import HolidayScreen from "./screens/HolidayScreen";
+import StaffScreen from "./screens/StaffScreen";
+import ArticleScreen from "./screens/ArticleScreen";
 import HomeScreen from "./screens/HomeScreen";
-import DoctorScreen from "./screens/DoctorScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import UpdateScreen from "./screens/UpdateScreen";
+import DoctorScreen from "./screens/DoctorScreen";
+import SavedDataScreen from "./screens/SavedDataScreen";
 import HospitalScreen from "./screens/HospitalScreen";
 import DoctorDetailsScreen from "./screens/DoctorDetailsScreen";
+import DepartmentScreen from "./screens/DepartmentScreen";
 import DepartmentParticularScreen from "./screens/DepartmentParticularScreen";
-import UpdateScreen from "./screens/UpdateScreen";
+import BookingScreen from "./screens/BookingScreen";
+import FinalBookScreen from "./screens/FinalBookScreen";
+import PatientScreen from "./screens/PatientScreen";
+import AllHospitalScreen from "./screens/HospitalScreens/AllHospitalScreen";
+
 const Stack = createNativeStackNavigator();
 
 function Navigation() {
@@ -71,13 +81,18 @@ function Navigation() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Camera" component={CameraComponent} />
+        <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name="Categories" component={CategoryScreen} />
         <Stack.Screen name="Holidays" component={HolidayScreen} />
-        <Stack.Screen name="Doctors" component={DoctorScreen} />
+        <Stack.Screen name="Articles" component={ArticleScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Update" component={UpdateScreen} />
+        <Stack.Screen name="UpdateSaved" component={SavedDataScreen} />
+        <Stack.Screen name="Staff" component={StaffScreen} />
+        <Stack.Screen name="Doctors" component={DoctorScreen} />
         <Stack.Screen name="Hospitals" component={HospitalScreen} />
         <Stack.Screen name="DoctorDetails" component={DoctorDetailsScreen} />
-        <Stack.Screen name="Update" component={UpdateScreen} />
+        <Stack.Screen name="Departments" component={DepartmentScreen} />
         
         <Stack.Screen
           name="ParticularDepartment"

@@ -136,6 +136,7 @@ const UpdateScreen = ({ navigation }) => {
             />
             <TextInput
               {...inputOptions}
+              editable={false}
               placeholder="Adhar Number"
               value={userCredentials.adhar}
               onChangeText={(val) =>
