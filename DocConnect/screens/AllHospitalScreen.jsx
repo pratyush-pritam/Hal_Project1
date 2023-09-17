@@ -7,9 +7,9 @@ import {
     TouchableWithoutFeedback
 } from "react-native";
 import React, { useState } from "react";
-import { defaultStyle, colors } from "../../constants/styles";
+import { defaultStyle, colors } from "../constants/styles";
 import { Avatar } from "react-native-paper";
-import SquareMenuButton from "../../components/SquareMenuButton";
+import SquareMenuButton from "../components/SquareMenuButton";
 
 const hospitals = ["SUM", "AIIMS", "UTKAL"];
 

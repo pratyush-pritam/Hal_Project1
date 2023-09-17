@@ -29,7 +29,7 @@ import DepartmentParticularScreen from "./screens/DepartmentParticularScreen";
 import BookingScreen from "./screens/BookingScreen";
 import FinalBookScreen from "./screens/FinalBookScreen";
 import PatientScreen from "./screens/PatientScreen";
-import AllHospitalScreen from "./screens/HospitalScreens/AllHospitalScreen";
+import AllHospitalScreen from "./screens/AllHospitalScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -77,7 +77,8 @@ function Navigation() {
         {showOnboarding && (
           <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         )}
-        <Stack.Screen name="Home" component={HomeScreen} />
+       
+       <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Camera" component={CameraComponent} />
@@ -93,11 +94,11 @@ function Navigation() {
         <Stack.Screen name="Hospitals" component={HospitalScreen} />
         <Stack.Screen name="DoctorDetails" component={DoctorDetailsScreen} />
         <Stack.Screen name="Departments" component={DepartmentScreen} />
-        
-        <Stack.Screen
-          name="ParticularDepartment"
-          component={DepartmentParticularScreen}
-        />
+        <Stack.Screen name="ParticularDepartment"component={DepartmentParticularScreen}/>
+        <Stack.Screen name="Booking" component={BookingScreen} />
+        <Stack.Screen name="PatientInfo" component={PatientScreen} />
+        <Stack.Screen name="FinalBooking" component={FinalBookScreen} />
+        <Stack.Screen name="AllHospital" component={AllHospitalScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
