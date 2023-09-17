@@ -97,7 +97,7 @@ const HospitalScreen = ({ navigation }) => {
               <Tab text={"1"} />
               <Tab text={"2"} />
             </View>
-            {/* <ChatComponent /> */}
+            <ChartComponent />
           </View>
         </View>
       </View>

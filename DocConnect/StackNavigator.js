@@ -20,7 +20,7 @@ import ProfileScreen from "./screens/ProfileScreen";
 import HospitalScreen from "./screens/HospitalScreen";
 import DoctorDetailsScreen from "./screens/DoctorDetailsScreen";
 import DepartmentParticularScreen from "./screens/DepartmentParticularScreen";
-
+import UpdateScreen from "./screens/UpdateScreen";
 const Stack = createNativeStackNavigator();
 
 function Navigation() {
@@ -46,7 +46,7 @@ function Navigation() {
       <View
         style={{ flex: 1, display: "flex", backgroundColor: colors.backgroundColor,justifyContent:"center",alignItems:"center" }}
       >
-        {/* <Loader height={100} width={100} color="black"/> */}
+        <Loader height={100} width={100} color="black"/>
       </View>
     );
   }
@@ -77,6 +77,8 @@ function Navigation() {
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="Hospitals" component={HospitalScreen} />
         <Stack.Screen name="DoctorDetails" component={DoctorDetailsScreen} />
+        <Stack.Screen name="Update" component={UpdateScreen} />
+        
         <Stack.Screen
           name="ParticularDepartment"
           component={DepartmentParticularScreen}
