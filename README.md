@@ -1,15 +1,11 @@
 
 #  DocConnect (Team-60)
-+ ## PS Code : 1383
-+ ## Ministry/Organization Name/Student Innovation: Govt of Himachal Pradesh
+
 + ## Problem Statement Title:
     Optimizing Doctor Availability and Appointment Allocation in Hospitals through Digital Technology   and Al Integration.
 + ## Team Name: 
-    **System Sages**
-+ ## Institute Code (AISHE):
-    C-42709
-+ ## Institute Name:
-    Institute of Technical Education & Research (Faculty of Engineering and Technology)
+    **Vajra**
+
 + ## Theme Name:
     MedTech/BioTech/HealthTech
 
@@ -34,15 +30,6 @@
     for running project - npx expo run:android
 
 
-## Contributions
-
-As of a team of 6 we all were divided the work into groups and given the full contribution in the goal of finising the project
-1. Pratyush Pritam
-2. Ashreeta Patra
-3. Kamallochan Das
-4. Aditya Swayam Siddha
-5. Sayak Banerjee
-6. Prabysachi Mohanty
 
 
 ## Idea Explanations
