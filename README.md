@@ -1,5 +1,6 @@
 
-#  DocConnect (Team-60)
+#  DocConnect 
+
 
 + ## Problem Statement Title:
     Optimizing Doctor Availability and Appointment Allocation in Hospitals through Digital Technology   and Al Integration.
